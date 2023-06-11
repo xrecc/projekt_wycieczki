@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-11 14:24:35
+/* Smarty version 4.3.0, created on 2023-06-11 16:47:06
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\search.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6485bd032779f1_80056139',
+  'unifunc' => 'content_6485de6a42f6e1_36774926',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea14bad5b3aad5954f1749382738a903e514231d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\search.html',
-      1 => 1686482840,
+      1 => 1686494823,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6485bd032779f1_80056139 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6485de6a42f6e1_36774926 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -42,38 +42,6 @@ assets/css/main.css" />
       ><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 assets/css/noscript.css"
     /></noscript>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-
-      #rangeValue {
-        position: relative;
-        display: block;
-        text-align: center;
-        font-size: 1em;
-        color: #030303;
-        font-weight: 400;
-      }
-      .range {
-        width: 350px;
-        height: 15px;
-        -webkit-appearance: none;
-        background: #111;
-        outline: none;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
-      }
-      .range::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background: #f4f81c;
-        cursor: pointer;
-        border: 4px solid #333;
-        box-shadow: -407px 0 0 400px #f4f81c;
-      }
-    </style>
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -82,7 +50,8 @@ assets/css/noscript.css"
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="general.html" class="logo">
+          <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+generalShow" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
             ><span class="title">Wakacje z Sebą</span>
           </a>
@@ -137,18 +106,69 @@ assets/css/noscript.css"
                 </div>
                 <div class="field half">
                   <div>
-                    <span id="stars">Ilość gwiazdek</span>
-                    <span id="rangeValue">0</span>
-                    <input class="range" type="range" name="stars" value="0" min="0" max="5" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"></input>
-                </div>
+                    <span id="stars">Ilość gwiazdek:</span>
+                    <span id="rangeValue"> 0</span>
+                    <div id="form-wrapper">
+                      <form action="/p/quote.php" method="GET">
+                        <div id="debt-amount-slider">
+                          <input
+                            type="radio"
+                            name="amount"
+                            id="1"
+                            value="1"
+                            onChange="rangeSlide(this.value)"
+                            required
+                          ></input>
+                          <label for="1"></label>
+                          <input
+                            type="radio"
+                            name="amount"
+                            id="2"
+                            value="2"
+                            onChange="rangeSlide(this.value)"
+                            required
+                          />
+                          <label for="2"></label>
+                          <input
+                            type="radio"
+                            name="amount"
+                            id="3"
+                            value="3"
+                            onChange="rangeSlide(this.value)"
+                            required
+                          />
+                          <label for="3"></label>
+                          <input
+                            type="radio"
+                            name="amount"
+                            id="4"
+                            value="4"
+                            onChange="rangeSlide(this.value)"
+                            required
+                          />
+                          <label for="4"></label>
+                          <input
+                            type="radio"
+                            name="amount"
+                            id="5"
+                            value="5"
+                            onChange="rangeSlide(this.value)"
+                            required
+                          />
+                          <label for="5"></label>
+                          <div id="amount"></div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
               <ul class="actions">
-                <li><input type="submit" value="Zaloguj" class="primary" /></li>
+                <li><input type="submit" value="Wyszukaj" class="primary" /></li>
               </ul>
             </form>
           </section>
-          
+
           <ul class="copyright">
             <li>&copy; Untitled. All rights reserved</li>
             <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>

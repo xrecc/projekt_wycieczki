@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-11 15:54:34
+/* Smarty version 4.3.0, created on 2023-06-11 16:05:49
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\general.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6485d21a5d72d3_89921641',
+  'unifunc' => 'content_6485d4bd33edb7_15344747',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ece14195faac464bc1d0c7647f4e49bc1aa210c8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\general.html',
-      1 => 1686491628,
+      1 => 1686491934,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6485d21a5d72d3_89921641 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6485d4bd33edb7_15344747 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
