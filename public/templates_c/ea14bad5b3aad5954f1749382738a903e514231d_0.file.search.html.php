@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-11 16:47:06
+/* Smarty version 4.3.0, created on 2023-06-11 16:58:19
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\search.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6485de6a42f6e1_36774926',
+  'unifunc' => 'content_6485e10bba9f91_35703823',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea14bad5b3aad5954f1749382738a903e514231d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\search.html',
-      1 => 1686494823,
+      1 => 1686495497,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6485de6a42f6e1_36774926 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6485e10bba9f91_35703823 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -69,10 +69,17 @@ generalShow" class="logo">
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="general.html">Strona główna</a></li>
+          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+generalShow">Strona główna</a></li>
           <li><a href="elements.html">Elements</a></li>
-          <li><a href="generic.html">Logowanie</a></li>
-          <li><a href="generic.html">Rejestracja</a></li>
+          <li>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+loginShow"
+              >Dezaktywuj konto (tymczasowo logowanie)</a
+            >
+          </li>
+          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+logout">Wylogowanie</a></li>
         </ul>
       </nav>
 
@@ -109,7 +116,7 @@ generalShow" class="logo">
                     <span id="stars">Ilość gwiazdek:</span>
                     <span id="rangeValue"> 0</span>
                     <div id="form-wrapper">
-                      <form action="/p/quote.php" method="GET">
+                      <form action="#" method="GET">
                         <div id="debt-amount-slider">
                           <input
                             type="radio"

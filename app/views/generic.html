@@ -42,11 +42,14 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="general.html">Home</a></li>
-          <li><a href="generic.html">Ipsum veroeros</a></li>
-          <li><a href="generic.html">Tempus etiam</a></li>
-          <li><a href="generic.html">Consequat dolor</a></li>
+          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
           <li><a href="elements.html">Elements</a></li>
+          <li>
+            <a href="{$conf->action_url}loginShow"
+              >Dezaktywuj konto (tymczasowo logowanie)</a
+            >
+          </li>
+          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
         </ul>
       </nav>
 

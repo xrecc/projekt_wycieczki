@@ -43,10 +43,14 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="general.html">Strona główna</a></li>
+          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
           <li><a href="elements.html">Elements</a></li>
-          <li><a href="generic.html">Logowanie</a></li>
-          <li><a href="generic.html">Rejestracja</a></li>
+          <li>
+            <a href="{$conf->action_url}loginShow"
+              >Dezaktywuj konto (tymczasowo logowanie)</a
+            >
+          </li>
+          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
         </ul>
       </nav>
 
@@ -83,7 +87,7 @@
                     <span id="stars">Ilość gwiazdek:</span>
                     <span id="rangeValue"> 0</span>
                     <div id="form-wrapper">
-                      <form action="/p/quote.php" method="GET">
+                      <form action="#" method="GET">
                         <div id="debt-amount-slider">
                           <input
                             type="radio"
