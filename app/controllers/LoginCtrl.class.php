@@ -41,20 +41,37 @@ class LoginCtrl {
 		}
 
 		if ( !App::getMessages()->isError() ) {
-		
-			if ($this->form->login == "admin" && $this->form->pass == "admin") {
 
+			$isAccount = App::getDB()->has("users", [
+				"AND"=>[
+					"email" => $this->form->login,
+					"haslo" => $this->form->pass,
+					"czy_admin" => 1
+				]
+			]);
+
+			if($isAccount){
 				RoleUtils::addRole('admin');
-
-			} else if ($this->form->login == "user" && $this->form->pass == "user") {
-
-				RoleUtils::addRole('user');
-
-			} else {
-				App::getMessages()->addMessage(new Message("Niepoprawny login lub hasło", Message::ERROR )) ;
+			}	
+			else {
+				$isAccountUser = App::getDB()->has("users", [
+					"AND"=>[
+						"email" => $this->form->login,
+						"haslo" => $this->form->pass,
+						"czy_admin" => 0
+					]	
+					]);
+					if($isAccountUser)
+					{
+						RoleUtils::addRole('user');
+					}
+					else{
+						App::getMessages()->addMessage(new Message("Niepoprawny login lub hasło", Message::ERROR ));
+					}
 			}
-		}
 		
+		}
+
 		return ! App::getMessages()->isError();
 	}
 	

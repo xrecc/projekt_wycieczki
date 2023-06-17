@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-17 22:59:14
-  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\signup.html' */
+/* Smarty version 4.3.0, created on 2023-06-17 17:29:01
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\lista.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_648e1ea27c9669_76970597',
+  'unifunc' => 'content_648dd13d769236_32293827',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '19d4abb61abd584adf4b5ab04e86870703bbbf28' => 
+    'd5677ef9f781a29027e0bb89be0509a52975926f' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\signup.html',
-      1 => 1687035553,
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\lista.html',
+      1 => 1687015737,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_648e1ea27c9669_76970597 (Smarty_Internal_Template $_smarty_tpl) {
+function content_648dd13d769236_32293827 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -29,17 +29,15 @@ function content_648e1ea27c9669_76970597 (Smarty_Internal_Template $_smarty_tpl)
 -->
 <html>
   <head>
-    <title>Phantom by HTML5 UP</title>
+    <title>Generic - Phantom by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
     <noscript
-      ><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/css/noscript.css"
+      ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
   </head>
   <body class="is-preload">
@@ -51,10 +49,8 @@ assets/css/noscript.css"
           <!-- Logo -->
           <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 generalShow" class="logo">
-            <span class="symbol"
-              ><img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
+            <span class="symbol"><img src="images/logo.svg" alt="" /></span
+            ><span class="title">Phantom</span>
           </a>
 
           <!-- Nav -->
@@ -71,75 +67,79 @@ images/logo.svg" alt="" /></span
         <h2>Menu</h2>
         <ul>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-loginShow">Logowanie</a></li>
+generalShow">Strona główna</a></li>
+          <li><a href="elements.html">Elements</a></li>
+          <li>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+loginShow"
+              >Dezaktywuj konto (tymczasowo logowanie)</a
+            >
+          </li>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signupShow">Rejestracja</a></li>
+logout">Wylogowanie</a></li>
         </ul>
       </nav>
 
       <!-- Main -->
-      <div id="main">
-        <div class="inner">
-          <header>
-            <h1>Rejestracja.</h1>
-            <p>Załóż nowe konto.</p>
-          </header>
+      <section id="contact">
+        <div>
+          <section>
+            <table id="tab_result" class="pure-table pure-table-bordered">
+              <tr>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Haslo</th>
+                <th>Czy Admin</th>
+                <th>email</th>
+                <th>numer_telefonu</th>
+              </tr>
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['users']->value, 'r');
+$_smarty_tpl->tpl_vars['r']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['r']->value) {
+$_smarty_tpl->tpl_vars['r']->do_else = false;
+?> <tr><td><?php echo $_smarty_tpl->tpl_vars['r']->value["imie"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['r']->value["nazwisko"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['r']->value["haslo"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['r']->value["czy_admin"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['r']->value["email"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['r']->value["numer_telefonu"];?>
+</td></tr> <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            </table>
+          </section>
         </div>
-      </div>
+      </section>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Zarejestruj się</h2>
-            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signup">
+            <h2>Get in touch</h2>
+            <form method="post" action="#">
               <div class="fields">
+                <div class="field half">
+                  <input type="text" name="name" id="name" placeholder="Name" />
+                </div>
                 <div class="field half">
                   <input
                     type="email"
                     name="email"
-                    id="id_email"
+                    id="email"
                     placeholder="Email"
                   />
                 </div>
-                <div class="field half">
-                  <input
-                    type="password"
-                    name="pass"
-                    id="id_pass"
-                    placeholder="Hasło"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="text"
-                    name="name"
-                    id="id_name"
-                    placeholder="Imię"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="text"
-                    name="surname"
-                    id="id_surname"
-                    placeholder="Nazwisko"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="number"
-                    name="phonenumber"
-                    id="id_number"
-                    placeholder="Numer telefonu"
-                  />
+                <div class="field">
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Message"
+                  ></textarea>
                 </div>
               </div>
               <ul class="actions">
-                <li>
-                  <input type="submit" value="Zarejestruj" class="primary" />
-                </li>
+                <li><input type="submit" value="Send" class="primary" /></li>
               </ul>
             </form>
           </section>
@@ -198,24 +198,19 @@ signup">
 
     <!-- Scripts -->
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/jquery.min.js"><?php echo '</script'; ?>
+ src="assets/js/jquery.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/browser.min.js"><?php echo '</script'; ?>
+ src="assets/js/browser.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/breakpoints.min.js"><?php echo '</script'; ?>
+ src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/util.js"><?php echo '</script'; ?>
+ src="assets/js/util.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/main.js"><?php echo '</script'; ?>
+ src="assets/js/main.js"><?php echo '</script'; ?>
 >
   </body>
 </html>
