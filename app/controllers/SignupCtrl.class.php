@@ -30,7 +30,7 @@ class SignupCtrl {
 	}
 	
 	public function validate() {
-		if (! (isset ( $this->form->login ) && isset ( $this->form->pass ) && isset ( $this->form->name ) && isset ( $this->form->surname ) && isset ( $this->form->email ) && isset ( $this->form->phonenumber ))) {
+		if (! (isset ( $this->form->pass ) && isset ( $this->form->name ) && isset ( $this->form->surname ) && isset ( $this->form->email ) && isset ( $this->form->phonenumber ))) {
 			return false;
 		}
 			
