@@ -6,15 +6,15 @@
 -->
 <html>
   <head>
-    <title>Generic - Phantom by HTML5 UP</title>
+    <title>Phantom by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="{$conf->app_url}assets/css/main.css" />
     <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
+      ><link rel="stylesheet" href="{$conf->app_url}assets/css/noscript.css"
     /></noscript>
   </head>
   <body class="is-preload">
@@ -25,8 +25,9 @@
         <div class="inner">
           <!-- Logo -->
           <a href="{$conf->action_url}generalShow" class="logo">
-            <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Phantom</span>
+            <span class="symbol"
+              ><img src="{$conf->app_url}images/logo.svg" alt="" /></span
+            ><span class="title">Wakacje z Sebą</span>
           </a>
 
           <!-- Nav -->
@@ -45,7 +46,7 @@
           <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
           <li><a href="elements.html">Elements</a></li>
           <li>
-            <a href="{$conf->action_url}loginShow"
+            <a href="{$conf->action_url}resultList"
               >Dezaktywuj konto (tymczasowo logowanie)</a
             >
           </li>
@@ -56,60 +57,51 @@
       <!-- Main -->
       <div id="main">
         <div class="inner">
-          <h1>Generic Page</h1>
-          <!-- {foreach $hotel as $t} {strip}
-
-          <span class="image main"
-            ><img src="images/hotel{$t["zdjecie"]}.jpg" alt="" /></span
-          >
-          {/strip} {/foreach} -->
-          {foreach $results as $r} {strip}
-          <p>
-          <span class="image left"
-            ><img src="images/hotel{$r["zdjecie"]}.jpg" alt="" /></span
-          >
-          <h3>{$r["hotname"]}</h3>
-          
-            <strong>{$r["hotname"]}</strong> <br>
-            Hotel znajduje się w {$r["nazwa"]}, {$r["kraj"]}.<br />
-            Cena za noc wynosi {$r["cena_za_noc"]} złotych.<br />
-            Może pochwlić się {$r["gwiazdki"]} gwiazdkami.
-          </p>
-          {/strip} {/foreach}
+          <header>
+            <h1>Panel Admina.</h1>
+            <p>Zarządzanie.</p>
+          </header>
+          <section class="tiles">
+            <article class="style1">
+              <span class="image">
+                <img src="images/pic01.jpg" alt="" />
+              </span>
+              <a href="{$conf->action_url}resultList">
+                <h2>Zarządzanie użytkownikami</h2>
+                <div class="content">
+                  <p>Dodawanie, usuwanie, modyfikowanie użytkowników.</p>
+                </div>
+              </a>
+            </article>
+            <article class="style2">
+              <span class="image">
+                <img src="images/pic02.jpg" alt="" />
+              </span>
+              <a href="{$conf->action_url}hotelList">
+                <h2>Zarządzanie hotelami</h2>
+                <div class="content">
+                  <p>Dodawanie, usuwanie, modyfikowanie hoteli.</p>
+                </div>
+              </a>
+            </article>
+            <article class="style3">
+              <span class="image">
+                <img src="images/pic03.jpg" alt="" />
+              </span>
+              <a href="{$conf->action_url}reservationList">
+                <h2>Zarządzanie rezerwacjami</h2>
+                <div class="content">
+                  <p>Dodawanie, usuwanie, modyfikowanie rezerwacji.</p>
+                </div>
+              </a>
+            </article>
+          </section>
         </div>
       </div>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
-          <section>
-            <h2>Zarezerwuj</h2>
-            <form method="post" action="#">
-              <div class="fields">
-                <div class="field half">
-                  <input type="text" name="name" id="name" placeholder="Name" />
-                </div>
-                <div class="field half">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="field">
-                  <textarea
-                    name="message"
-                    id="message"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-              </div>
-              <ul class="actions">
-                <li><input type="submit" value="Send" class="primary" /></li>
-              </ul>
-            </form>
-          </section>
           <section>
             <h2>Follow</h2>
             <ul class="icons">
@@ -164,10 +156,10 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{$conf->app_url}assets/js/jquery.min.js"></script>
+    <script src="{$conf->app_url}assets/js/browser.min.js"></script>
+    <script src="{$conf->app_url}assets/js/breakpoints.min.js"></script>
+    <script src="{$conf->app_url}assets/js/util.js"></script>
+    <script src="{$conf->app_url}assets/js/main.js"></script>
   </body>
 </html>

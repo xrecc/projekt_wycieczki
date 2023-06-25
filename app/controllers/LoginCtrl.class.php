@@ -41,26 +41,16 @@ class LoginCtrl {
 		}
 
 		if ( !App::getMessages()->isError() ) {
-
-			$isAccount = App::getDB()->has("users", [
-				"AND"=>[
-					"email" => $this->form->login,
-					"haslo" => $this->form->pass,
-					"czy_admin" => 1
-				]
-			]);
+			$isAccount = App::getDB()->has("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")),
+			array("AND" => array("kontakt.email" => $this->form->login, "users.haslo" => $this->form->pass, "users.czy_admin" => 1)));
 
 			if($isAccount){
 				RoleUtils::addRole('admin');
 			}	
 			else {
-				$isAccountUser = App::getDB()->has("users", [
-					"AND"=>[
-						"email" => $this->form->login,
-						"haslo" => $this->form->pass,
-						"czy_admin" => 0
-					]	
-					]);
+				$isAccountUser = App::getDB()->has("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")),
+			array("AND" => array("kontakt.email" => $this->form->login, "users.haslo" => $this->form->pass, "users.czy_admin" => 0)));
+
 					if($isAccountUser)
 					{
 						RoleUtils::addRole('user');

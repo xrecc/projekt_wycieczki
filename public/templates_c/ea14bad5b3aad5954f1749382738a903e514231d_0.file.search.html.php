@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-11 16:58:19
+/* Smarty version 4.3.0, created on 2023-06-25 13:25:09
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\search.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6485e10bba9f91_35703823',
+  'unifunc' => 'content_64982415444170_64489905',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea14bad5b3aad5954f1749382738a903e514231d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\search.html',
-      1 => 1686495497,
+      1 => 1687692167,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6485e10bba9f91_35703823 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64982415444170_64489905 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -98,25 +98,44 @@ logout">Wylogowanie</a></li>
         <div class="inner">
           <section>
             <h2>Podaj informacje</h2>
-            <form method="post" action="#">
+            <form method="post" action="searchResult">
               <div class="fields">
                 <div class="field half">
-                  <input type="text" name="kraj" id="kraj" placeholder="Kraj" />
+                  <select name="kraj" id="demo-category">
+                    <option value ="">Kraj</option>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['kraj']->value, 'k');
+$_smarty_tpl->tpl_vars['k']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['k']->value) {
+$_smarty_tpl->tpl_vars['k']->do_else = false;
+?> <option value = "<?php echo $_smarty_tpl->tpl_vars['k']->value["kraj"];?>
+"><?php echo $_smarty_tpl->tpl_vars['k']->value["kraj"];?>
+</option> <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                  </select>
                 </div>
                 <div class="field half">
-                  <input
-                    type="text"
-                    name="miasto"
-                    id="miasto"
-                    placeholder="Miasto"
-                  />
+                  <select name="nazwa" id="demo-category">
+                    <option value ="">Miasto</option>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['miasto']->value, 'm');
+$_smarty_tpl->tpl_vars['m']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
+$_smarty_tpl->tpl_vars['m']->do_else = false;
+?> <option value = "<?php echo $_smarty_tpl->tpl_vars['m']->value["nazwa"];?>
+"><?php echo $_smarty_tpl->tpl_vars['m']->value["nazwa"];?>
+</option> <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                  </select>
                 </div>
                 <div class="field half">
                   <div>
                     <span id="stars">Ilość gwiazdek:</span>
                     <span id="rangeValue"> 0</span>
                     <div id="form-wrapper">
-                      <form action="#" method="GET">
+
                         <div id="debt-amount-slider">
                           <input
                             type="radio"
@@ -165,7 +184,7 @@ logout">Wylogowanie</a></li>
                           <label for="5"></label>
                           <div id="amount"></div>
                         </div>
-                      </form>
+                      
                     </div>
                   </div>
                 </div>

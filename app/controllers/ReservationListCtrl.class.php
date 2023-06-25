@@ -5,19 +5,18 @@ namespace app\controllers;
 use PDOException;
 use core\App;
 use core\Message;
-use core\ParamUtils;
-use core\RoleUtils;
-use app\forms\SignupForm;
 
-class ListCtrl {
+class ReservationListCtrl {
 
 	private $records; 
+	private $databet;
 
-	public function action_resultList(){
+	public function action_reservationList(){
 		
 		try{
-			$this->records = App::getDB()->select("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")),
-			array("users.idusers","users.imie","users.nazwisko","users.haslo","users.czy_admin","kontakt.email","kontakt.numer_telefonu"));
+			$this->records = App::getDB()->select("rezerwacja", array("[><]hotel" => array("hotel_idhotel" => "idhotel"), "[><]users" => array("users_idusers" => "idusers"), "[><]kontakt" => array("users.kontakt_idkontakt" => "idkontakt")),
+			array("hotel.idhotel","hotel.nazwa", "hotel.cena_za_noc", "hotel.all_inclusive", "users.imie","users.nazwisko", "kontakt.email", "kontakt.numer_telefonu"));
+
 			// $this->records = APP::getDB()->select("users", [
 			// 	"[<>]kontakt" =>["kontakt_idkontakt"=>"kontakt_id"]
 			// ],[
@@ -34,7 +33,8 @@ class ListCtrl {
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
 		}	
 		 
-		App::getSmarty()->assign('users',$this->records);  
-		App::getSmarty()->display('lista.html');
+		App::getSmarty()->assign('rezerwacja',$this->records); 
+		App::getSmarty()->assign('aaa', $this->databet); 
+		App::getSmarty()->display('listarezerwacji.html');
 	}
 }

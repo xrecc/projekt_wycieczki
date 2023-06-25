@@ -59,13 +59,17 @@ class SignupCtrl {
 		$this->getParams();	
 		if ($this->validate()) {
 			try {
-				APP::getDB()->insert("users", [
+				App::getDB()->insert("kontakt", [
+					"email" => $this->form->email,
+					"numer_telefonu" => $this->form->phonenumber
+				]);
+				
+				App::getDB()->insert("users", [
 					"imie" => $this->form->name,
 					"nazwisko" => $this->form->surname,
 					"haslo" => $this->form->pass,
                     "czy_admin" => $this->form->isAdmin,
-                    "email" => $this->form->email,
-					"numer_telefonu" => $this->form->phonenumber
+					"kontakt_idkontakt" => App::getDB()->id("kontakt")
 				]);
 					
 			} catch (PDOException $e){

@@ -8,6 +8,11 @@ App::getRouter()->setDefaultRoute('loginShow'); #default action
 
 Utils::addRoute('generalShow', 'GeneralCtrl' ,["user", "admin"]);
 Utils::addRoute('searchShow', 'SearchCtrl');
+Utils::addRoute('adminpanelShow', 'AdminPanelCtrl');
+Utils::addRoute('hotelList', 'HotelListCtrl');
+Utils::addRoute('reservationList', 'ReservationListCtrl');
+Utils::addRoute('elementsShow', 'ElementsCtrl');
+Utils::addRoute('searchResult', 'SearchCtrl');
 Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');
 Utils::addRoute('loginShow', 'LoginCtrl');

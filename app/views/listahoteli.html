@@ -54,36 +54,42 @@
       </nav>
 
       <!-- Main -->
-      <div id="main">
-        <div class="inner">
-          <h1>Generic Page</h1>
-          <!-- {foreach $hotel as $t} {strip}
-
-          <span class="image main"
-            ><img src="images/hotel{$t["zdjecie"]}.jpg" alt="" /></span
-          >
-          {/strip} {/foreach} -->
-          {foreach $results as $r} {strip}
-          <p>
-          <span class="image left"
-            ><img src="images/hotel{$r["zdjecie"]}.jpg" alt="" /></span
-          >
-          <h3>{$r["hotname"]}</h3>
-          
-            <strong>{$r["hotname"]}</strong> <br>
-            Hotel znajduje się w {$r["nazwa"]}, {$r["kraj"]}.<br />
-            Cena za noc wynosi {$r["cena_za_noc"]} złotych.<br />
-            Może pochwlić się {$r["gwiazdki"]} gwiazdkami.
-          </p>
-          {/strip} {/foreach}
+      <section id="contact">
+        <div>
+          <section>
+            <table id="tab_result" class="pure-table pure-table-bordered">
+              <tr>
+                <th>Nazwa</th>
+                <th>Ilość gwiazdek</th>
+                <th>Data powstania</th>
+                <th>Cena za noc</th>
+                <th>Basen</th>
+                <th>All_inclusive</th>
+                <th>Email</th>
+                <th>Numer telefonu</th>
+              </tr>
+              {foreach $hotel as $h} {strip}
+              <tr>
+                <td>{$h["nazwa"]}</td>
+                <td>{$h["gwiazdki"]}</td>
+                <td>{$h["data_powstania"]}</td>
+                <td>{$h["cena_za_noc"]}</td>
+                <td>{$h["basen"]}</td>
+                <td>{$h["all_inclusive"]}</td>
+                <td>{$h["email"]}</td>
+                <td>{$h["numer_telefonu"]}</td>
+              </tr>
+              {/strip} {/foreach}
+            </table>
+          </section>
         </div>
-      </div>
+      </section>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Zarezerwuj</h2>
+            <h2>Get in touch</h2>
             <form method="post" action="#">
               <div class="fields">
                 <div class="field half">

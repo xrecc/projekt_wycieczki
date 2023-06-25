@@ -69,25 +69,32 @@
         <div class="inner">
           <section>
             <h2>Podaj informacje</h2>
-            <form method="post" action="#">
+            <form method="post" action="searchResult">
               <div class="fields">
                 <div class="field half">
-                  <input type="text" name="kraj" id="kraj" placeholder="Kraj" />
+                  <select name="kraj" id="demo-category">
+                    <option value ="">Kraj</option>
+                    {foreach $kraj as $k} {strip}
+                    <option value = "{$k["kraj"]}">{$k["kraj"]}</option>
+
+                    {/strip} {/foreach}
+                  </select>
                 </div>
                 <div class="field half">
-                  <input
-                    type="text"
-                    name="miasto"
-                    id="miasto"
-                    placeholder="Miasto"
-                  />
+                  <select name="nazwa" id="demo-category">
+                    <option value ="">Miasto</option>
+                    {foreach $miasto as $m} {strip}
+                    <option value = "{$m["nazwa"]}">{$m["nazwa"]}</option>
+
+                    {/strip} {/foreach}
+                  </select>
                 </div>
                 <div class="field half">
                   <div>
                     <span id="stars">Ilość gwiazdek:</span>
                     <span id="rangeValue"> 0</span>
                     <div id="form-wrapper">
-                      <form action="#" method="GET">
+
                         <div id="debt-amount-slider">
                           <input
                             type="radio"
@@ -136,7 +143,7 @@
                           <label for="5"></label>
                           <div id="amount"></div>
                         </div>
-                      </form>
+                      
                     </div>
                   </div>
                 </div>

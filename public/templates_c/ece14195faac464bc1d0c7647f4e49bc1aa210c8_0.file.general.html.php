@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-17 17:11:08
+/* Smarty version 4.3.0, created on 2023-06-24 20:32:44
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\general.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_648dcd0c25aeb3_04966830',
+  'unifunc' => 'content_649736ccdf5d83_18938597',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ece14195faac464bc1d0c7647f4e49bc1aa210c8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\general.html',
-      1 => 1687012952,
+      1 => 1687631548,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_648dcd0c25aeb3_04966830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_649736ccdf5d83_18938597 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -76,9 +76,11 @@ generalShow">Strona główna</a></li>
           <li>
             <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 resultList"
-              >Dezaktywuj konto (tymczasowo logowanie)</a
+              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
             >
           </li>
+          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+adminpanelShow">Panel Admina</a></li>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 logout">Wylogowanie</a></li>
         </ul>
@@ -103,12 +105,10 @@ searchShow"
           <section class="tiles">
             <article class="style1">
               <span class="image">
-                <img
-                  src="images/hotel1.jpg"
-                  alt="Obraz Thomas Ulrich z Pixabay"
-                />
+                <img src="images/hotelREBU.jpg" alt="Obraz Pexels z Pixabay" />
               </span>
-              <a href="test.html">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+elementsShow">
                 <h2>ReBu Hotel</h2>
                 <div class="content">
                   <p>
@@ -120,10 +120,13 @@ searchShow"
             </article>
             <article class="style2">
               <span class="image">
-                <img src="images/pic02.jpg" alt="" />
+                <img
+                  src="images/hotelTelph.jpg"
+                  alt="Obraz Ingo Jakubke z Pixabay"
+                />
               </span>
               <a href="generic.html">
-                <h2>Lorem</h2>
+                <h2>Telph</h2>
                 <div class="content">
                   <p>
                     Sed nisl arcu euismod sit amet nisi lorem etiam dolor
@@ -134,10 +137,13 @@ searchShow"
             </article>
             <article class="style3">
               <span class="image">
-                <img src="images/pic03.jpg" alt="" />
+                <img
+                  src="images/hotelZib.jpg"
+                  alt="Obraz Carlos / Saigon - Vietnam z Pixabay"
+                />
               </span>
               <a href="generic.html">
-                <h2>Feugiat</h2>
+                <h2>Zib Hotel</h2>
                 <div class="content">
                   <p>
                     Sed nisl arcu euismod sit amet nisi lorem etiam dolor
@@ -148,10 +154,13 @@ searchShow"
             </article>
             <article class="style4">
               <span class="image">
-                <img src="images/pic04.jpg" alt="" />
+                <img
+                  src="images/hotelNature.jpg"
+                  alt="Obraz werner moser z Pixabay"
+                />
               </span>
               <a href="generic.html">
-                <h2>Tempus</h2>
+                <h2>Nature</h2>
                 <div class="content">
                   <p>
                     Sed nisl arcu euismod sit amet nisi lorem etiam dolor
@@ -162,10 +171,13 @@ searchShow"
             </article>
             <article class="style5">
               <span class="image">
-                <img src="images/pic05.jpg" alt="" />
+                <img
+                  src="images/hotelGlassPalace.jpg"
+                  alt="Obraz wal_172619 z Pixabay"
+                />
               </span>
               <a href="generic.html">
-                <h2>Aliquam</h2>
+                <h2>Glass Palace</h2>
                 <div class="content">
                   <p>
                     Sed nisl arcu euismod sit amet nisi lorem etiam dolor
@@ -176,10 +188,13 @@ searchShow"
             </article>
             <article class="style6">
               <span class="image">
-                <img src="images/pic06.jpg" alt="" />
+                <img
+                  src="images/hotelBeyond.jpg"
+                  alt="Obraz Steve Buissinne z Pixabay"
+                />
               </span>
               <a href="generic.html">
-                <h2>Veroeros</h2>
+                <h2>Beyond</h2>
                 <div class="content">
                   <p>
                     Sed nisl arcu euismod sit amet nisi lorem etiam dolor

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-21 19:18:33
-  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\signup.html' */
+/* Smarty version 4.3.0, created on 2023-06-24 15:00:34
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\adminpanel.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_649330e92eb913_12464835',
+  'unifunc' => 'content_6496e8f2850d88_72987444',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '19d4abb61abd584adf4b5ab04e86870703bbbf28' => 
+    'aa7925410c80470910b9b903b6a3f1def3e370de' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\signup.html',
-      1 => 1687036734,
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\adminpanel.html',
+      1 => 1687611628,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_649330e92eb913_12464835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6496e8f2850d88_72987444 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -71,9 +71,16 @@ images/logo.svg" alt="" /></span
         <h2>Menu</h2>
         <ul>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-loginShow">Logowanie</a></li>
+generalShow">Strona główna</a></li>
+          <li><a href="elements.html">Elements</a></li>
+          <li>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+resultList"
+              >Dezaktywuj konto (tymczasowo logowanie)</a
+            >
+          </li>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signupShow">Rejestracja</a></li>
+logout">Wylogowanie</a></li>
         </ul>
       </nav>
 
@@ -81,70 +88,53 @@ signupShow">Rejestracja</a></li>
       <div id="main">
         <div class="inner">
           <header>
-            <h1>Rejestracja.</h1>
-            <p>Załóż nowe konto.</p>
+            <h1>Panel Admina.</h1>
+            <p>Zarządzanie.</p>
           </header>
+          <section class="tiles">
+            <article class="style1">
+              <span class="image">
+                <img src="images/pic01.jpg" alt="" />
+              </span>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+resultList">
+                <h2>Zarządzanie użytkownikami</h2>
+                <div class="content">
+                  <p>Dodawanie, usuwanie, modyfikowanie użytkowników.</p>
+                </div>
+              </a>
+            </article>
+            <article class="style2">
+              <span class="image">
+                <img src="images/pic02.jpg" alt="" />
+              </span>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+hotelList">
+                <h2>Zarządzanie hotelami</h2>
+                <div class="content">
+                  <p>Dodawanie, usuwanie, modyfikowanie hoteli.</p>
+                </div>
+              </a>
+            </article>
+            <article class="style3">
+              <span class="image">
+                <img src="images/pic03.jpg" alt="" />
+              </span>
+              <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+reservationList">
+                <h2>Zarządzanie rezerwacjami</h2>
+                <div class="content">
+                  <p>Dodawanie, usuwanie, modyfikowanie rezerwacji.</p>
+                </div>
+              </a>
+            </article>
+          </section>
         </div>
       </div>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
-          <section>
-            <h2>Zarejestruj się</h2>
-            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signup">
-              <div class="fields">
-                <div class="field half">
-                  <input
-                    type="email"
-                    name="email"
-                    id="id_email"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="password"
-                    name="pass"
-                    id="id_pass"
-                    placeholder="Hasło"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="text"
-                    name="name"
-                    id="id_name"
-                    placeholder="Imię"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="text"
-                    name="surname"
-                    id="id_surname"
-                    placeholder="Nazwisko"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="tel"
-                    name="phonenumber"
-                    id="id_number"
-                    placeholder="Numer telefonu"
-                    minlength="9"
-                    maxlength="9"
-                  />
-                </div>
-              </div>
-              <ul class="actions">
-                <li>
-                  <input type="submit" value="Zarejestruj" class="primary" />
-                </li>
-              </ul>
-            </form>
-          </section>
           <section>
             <h2>Follow</h2>
             <ul class="icons">
