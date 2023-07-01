@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-25 14:04:23
+/* Smarty version 4.3.0, created on 2023-06-25 17:54:58
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\generic.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64982d47a59fe7_75662003',
+  'unifunc' => 'content_64986352a84395_48775631',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '77d11a10abb32b094bf9a667b8bfacecbf8f2e5b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\generic.html',
-      1 => 1687694571,
+      1 => 1687708497,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64982d47a59fe7_75662003 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64986352a84395_48775631 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -83,24 +83,17 @@ logout">Wylogowanie</a></li>
       <!-- Main -->
       <div id="main">
         <div class="inner">
-          <h1>Generic Page</h1>
-          <!-- <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['hotel']->value, 't');
-$_smarty_tpl->tpl_vars['t']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['t']->value) {
-$_smarty_tpl->tpl_vars['t']->do_else = false;
-?> <span class="image main" ><img src="images/hotel<?php echo $_smarty_tpl->tpl_vars['t']->value["zdjecie"];?>
-.jpg" alt="" /></span> <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> -->
+          <h1>Wyniki</h1>
           <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['results']->value, 'r');
 $_smarty_tpl->tpl_vars['r']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['r']->value) {
 $_smarty_tpl->tpl_vars['r']->do_else = false;
-?> <p><span class="image left" ><img src="images/hotel<?php echo $_smarty_tpl->tpl_vars['r']->value["zdjecie"];?>
-.jpg" alt="" /></span><h3><?php echo $_smarty_tpl->tpl_vars['r']->value["hotname"];?>
-</h3><strong><?php echo $_smarty_tpl->tpl_vars['r']->value["hotname"];?>
+?> <p><span class="image left" ><img src="images/hotel<?php echo $_smarty_tpl->tpl_vars['r']->value['zdjecie'];?>
+.jpg" alt="" /></span><h3 id="hostname"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+hotelShow#<?php echo $_smarty_tpl->tpl_vars['r']->value['hotname'];?>
+"><?php echo $_smarty_tpl->tpl_vars['r']->value["hotname"];?>
+</a></h3><strong><?php echo $_smarty_tpl->tpl_vars['r']->value["hotname"];?>
 </strong> <br>Hotel znajduje się w <?php echo $_smarty_tpl->tpl_vars['r']->value["nazwa"];?>
 , <?php echo $_smarty_tpl->tpl_vars['r']->value["kraj"];?>
 .<br />Cena za noc wynosi <?php echo $_smarty_tpl->tpl_vars['r']->value["cena_za_noc"];?>
@@ -108,40 +101,14 @@ $_smarty_tpl->tpl_vars['r']->do_else = false;
  gwiazdkami.</p> <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+          
         </div>
       </div>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
-          <section>
-            <h2>Zarezerwuj</h2>
-            <form method="post" action="#">
-              <div class="fields">
-                <div class="field half">
-                  <input type="text" name="name" id="name" placeholder="Name" />
-                </div>
-                <div class="field half">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="field">
-                  <textarea
-                    name="message"
-                    id="message"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-              </div>
-              <ul class="actions">
-                <li><input type="submit" value="Send" class="primary" /></li>
-              </ul>
-            </form>
-          </section>
+          
           <section>
             <h2>Follow</h2>
             <ul class="icons">

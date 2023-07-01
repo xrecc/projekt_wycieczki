@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-25 16:07:45
-  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\general.html' */
+/* Smarty version 4.3.0, created on 2023-07-01 13:49:20
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\general.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64984a31a75787_85327422',
+  'unifunc' => 'content_64a012c0760f71_31890672',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'ece14195faac464bc1d0c7647f4e49bc1aa210c8' => 
+    '1cbbb2b303103fafb2bb28327b99469d8c178a95' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\general.html',
-      1 => 1687702057,
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\general.tpl',
+      1 => 1688212155,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64984a31a75787_85327422 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a012c0760f71_31890672 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -49,8 +49,8 @@ assets/css/noscript.css"
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-generalShow" class="logo">
+          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+" class="logo">
             <span class="symbol"
               ><img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 images/logo.svg" alt="" /></span
@@ -69,20 +69,29 @@ images/logo.svg" alt="" /></span
       <!-- Menu -->
       <nav id="menu">
         <h2>Menu</h2>
-        <ul>
+        <ul>      
           <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
 ">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
+          <?php if (\core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")) {?>
+          <li><a href="elements.tpl">Elements</a></li>
           <li>
             <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
 "
               >Dezaktywuj konto (tymczasowo lista użytkowników)</a
             >
           </li>
+          <?php if (\core\RoleUtils::inRole("admin")) {?>
           <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'adminpanelShow'),$_smarty_tpl ) );?>
 ">Panel Admina</a></li>
+          <?php }?>
           <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'logout'),$_smarty_tpl ) );?>
 ">Wylogowanie</a></li>
+          <?php } else { ?>
+            <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'loginShow'),$_smarty_tpl ) );?>
+">Logowanie</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signupShow'),$_smarty_tpl ) );?>
+">Rejestracja</a></li>
+        <?php }?>
         </ul>
       </nav>
 
@@ -107,7 +116,8 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/hotelREBU.jpg" alt="Obraz Pexels z Pixabay" />
               </span>
-              <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'elementsShow'),$_smarty_tpl ) );?>
+
+              <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"elementsShow"),$_smarty_tpl ) );?>
 ">
                 <h2>ReBu Hotel</h2>
                 <div class="content">
@@ -125,7 +135,7 @@ images/logo.svg" alt="" /></span
                   alt="Obraz Ingo Jakubke z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Telph</h2>
                 <div class="content">
                   <p>
@@ -142,7 +152,7 @@ images/logo.svg" alt="" /></span
                   alt="Obraz Carlos / Saigon - Vietnam z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Zib Hotel</h2>
                 <div class="content">
                   <p>
@@ -159,7 +169,7 @@ images/logo.svg" alt="" /></span
                   alt="Obraz werner moser z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Nature</h2>
                 <div class="content">
                   <p>
@@ -176,7 +186,7 @@ images/logo.svg" alt="" /></span
                   alt="Obraz wal_172619 z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Glass Palace</h2>
                 <div class="content">
                   <p>
@@ -193,7 +203,7 @@ images/logo.svg" alt="" /></span
                   alt="Obraz Steve Buissinne z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Beyond</h2>
                 <div class="content">
                   <p>
@@ -207,7 +217,7 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/pic07.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Ipsum</h2>
                 <div class="content">
                   <p>
@@ -221,7 +231,7 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/pic08.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Dolor</h2>
                 <div class="content">
                   <p>
@@ -235,7 +245,7 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/pic09.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Nullam</h2>
                 <div class="content">
                   <p>
@@ -249,7 +259,7 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/pic10.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Ultricies</h2>
                 <div class="content">
                   <p>
@@ -263,7 +273,7 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/pic11.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Dictum</h2>
                 <div class="content">
                   <p>
@@ -277,7 +287,7 @@ images/logo.svg" alt="" /></span
               <span class="image">
                 <img src="images/pic12.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Pretium</h2>
                 <div class="content">
                   <p>

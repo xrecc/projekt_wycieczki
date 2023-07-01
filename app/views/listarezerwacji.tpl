@@ -24,7 +24,7 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="{url action='generalShow'}" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
             ><span class="title">Phantom</span>
           </a>
@@ -42,14 +42,22 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
+          <li><a href="{url action='generalShow'}">Strona główna</a></li>
+          {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
+          <li><a href="elements.tpl">Elements</a></li>
           <li>
-            <a href="{$conf->action_url}loginShow"
-              >Dezaktywuj konto (tymczasowo logowanie)</a
+            <a href="{url action='resultList'}"
+              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
             >
           </li>
-          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
+          {if \core\RoleUtils::inRole("admin")}
+          <li><a href="{url action='adminpanelShow'}">Panel Admina</a></li>
+          {/if}
+          <li><a href="{url action='logout'}">Wylogowanie</a></li>
+          {else}
+            <li><a href="{url action='loginShow'}">Logowanie</a></li>
+          <li><a href="{url action='signupShow'}">Rejestracja</a></li>
+        {/if}
         </ul>
       </nav>
 
@@ -60,26 +68,26 @@
             <table id="tab_result" class="pure-table pure-table-bordered">
               <tr>
                 <th>Nazwa</th>
-                <th>Ilość gwiazdek</th>
-                <th>Data powstania</th>
                 <th>Cena za noc</th>
-                <th>Basen</th>
                 <th>All_inclusive</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
                 <th>Email</th>
                 <th>Numer telefonu</th>
               </tr>
-              {foreach $hotel as $h} {strip}
+              {foreach $rezerwacja as $v} {strip}
               <tr>
-                <td>{$h["nazwa"]}</td>
-                <td>{$h["gwiazdki"]}</td>
-                <td>{$h["data_powstania"]}</td>
-                <td>{$h["cena_za_noc"]}</td>
-                <td>{$h["basen"]}</td>
-                <td>{$h["all_inclusive"]}</td>
-                <td>{$h["email"]}</td>
-                <td>{$h["numer_telefonu"]}</td>
+                <td>{$v["nazwa"]}</td>
+                <td>{$v["cena_za_noc"]}</td>
+                <td>{$v["all_inclusive"]}</td>
+                <td>{$v["imie"]}</td>
+                <td>{$v["nazwisko"]}</td>
+                <td>{$v["email"]}</td>
+                <td>{$v["numer_telefonu"]}</td>
+                {foreach $aaa as $a} {strip}
+                <td>{$a["data_start"]}</td>
               </tr>
-              {/strip} {/foreach}
+              {/strip} {/foreach} {/strip} {/foreach}
             </table>
           </section>
         </div>

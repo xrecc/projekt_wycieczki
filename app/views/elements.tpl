@@ -24,7 +24,7 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="general.html" class="logo">
+          <a href="general.tpl" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
             ><span class="title">Phantom</span>
           </a>
@@ -42,7 +42,7 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="general.html">Home</a></li>
+          <li><a href="general.tpl">Home</a></li>
           <li><a href="generic.html">Ipsum veroeros</a></li>
           <li><a href="generic.html">Tempus etiam</a></li>
           <li><a href="generic.html">Consequat dolor</a></li>

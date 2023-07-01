@@ -70,7 +70,7 @@ class LoginCtrl {
 		$this->getParams();
 		
 		if ($this->validate()){
-			App::getSmarty()->display("general.html");
+			App::getSmarty()->display("general.tpl");
 		} else {
 			$this->action_loginShow(); 
 		}
@@ -85,7 +85,7 @@ class LoginCtrl {
 	}
     public function action_loginShow() {
 		               
-        App::getSmarty()->display("login.html");
+        App::getSmarty()->display("login.tpl");
         
     }
     

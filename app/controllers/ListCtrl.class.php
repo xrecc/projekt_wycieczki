@@ -35,6 +35,6 @@ class ListCtrl {
 		}	
 		 
 		App::getSmarty()->assign('users',$this->records);  
-		App::getSmarty()->display('lista.html');
+		App::getSmarty()->display('lista.tpl');
 	}
 }

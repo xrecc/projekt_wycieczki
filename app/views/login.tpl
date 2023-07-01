@@ -1,27 +1,4 @@
-<?php
-/* Smarty version 4.3.0, created on 2023-06-25 22:05:21
-  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\login.html' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.3.0',
-  'unifunc' => 'content_64989e01a26e73_52682211',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    'cddb7dc6455796d8b6be7c261db4c3dec611259a' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\login.html',
-      1 => 1687722078,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -47,8 +24,7 @@ function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl)
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-generalShow" class="logo">
+          <a href="{url action='generalShow'}" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
             ><span class="title">Wakacje z Sebą</span>
           </a>
@@ -66,10 +42,9 @@ generalShow" class="logo">
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-loginShow">Logowanie</a></li>
-          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signupShow">Rejestracja</a></li>
+          <li><a href="{url action='generalShow'}">Strona główna</a></li>
+          <li><a href="{url action='loginShow'}">Logowanie</a></li>
+          <li><a href="{url action='signupShow'}">Rejestracja</a></li>
         </ul>
       </nav>
 
@@ -88,8 +63,7 @@ signupShow">Rejestracja</a></li>
         <div class="inner">
           <section>
             <h2>Zaloguj się</h2>
-            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-login">
+            <form method="post" action="{url action='login'}">
               <div class="fields">
                 <div class="field half">
                   <input
@@ -167,22 +141,10 @@ login">
     </div>
 
     <!-- Scripts -->
-    <?php echo '<script'; ?>
- src="assets/js/jquery.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/browser.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/util.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/main.js"><?php echo '</script'; ?>
->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
-<?php }
-}

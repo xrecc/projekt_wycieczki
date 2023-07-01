@@ -35,6 +35,6 @@ class ReservationListCtrl {
 		 
 		App::getSmarty()->assign('rezerwacja',$this->records); 
 		App::getSmarty()->assign('aaa', $this->databet); 
-		App::getSmarty()->display('listarezerwacji.html');
+		App::getSmarty()->display('listarezerwacji.tpl');
 	}
 }

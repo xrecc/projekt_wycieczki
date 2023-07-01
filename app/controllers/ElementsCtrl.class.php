@@ -5,6 +5,8 @@ namespace app\controllers;
 use core\App;
 use core\Message;
 use core\Utils;
+use core\ParamUtils;
+use app\forms\HotelForm;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -13,7 +15,16 @@ use core\Utils;
  */
 class ElementsCtrl {
     private $recordshotel; 
+	private $form;
+	public function __construct(){
+		$this->form = new HotelForm();
+	}
+
+	public function getParams(){
+
+	}
     public function action_elementsShow() {
+		$this->getParams();
         try{
 			$this->recordshotel = App::getDB()->select("hotel", array("[><]kontakt" => array("kontakt_idkontakt" => "idkontakt")),
 			array("hotel.nazwa","hotel.gwiazdki","hotel.data_powstania","hotel.cena_za_noc","hotel.basen","hotel.all_inclusive","hotel.zdjecie","kontakt.numer_telefonu"));
@@ -24,7 +35,7 @@ class ElementsCtrl {
 		}	
 		 
 		App::getSmarty()->assign('hotel',$this->recordshotel);  
-		App::getSmarty()->display('generic.html');
+		App::getSmarty()->display('hotel.tpl');
 	}
         
     

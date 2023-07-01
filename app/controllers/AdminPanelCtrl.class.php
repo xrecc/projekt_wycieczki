@@ -15,7 +15,7 @@ class AdminPanelCtrl {
     
     public function action_adminpanelShow() {
 		             
-        App::getSmarty()->display("adminpanel.html");
+        App::getSmarty()->display("adminpanel.tpl");
         
     }
     

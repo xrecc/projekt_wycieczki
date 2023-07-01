@@ -6,6 +6,7 @@ use core\App;
 use core\Message;
 use core\ParamUtils;
 use app\forms\HotelForm;
+use core\Utils;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -15,7 +16,8 @@ use app\forms\HotelForm;
 class SearchCtrl {
     private $recordskraj;
     private $recordsmiasto;
-    private $aaa;
+    private $isHotel;
+    private $selHotel;
     private $form;
     public function __construct(){
 		$this->form = new HotelForm();
@@ -25,6 +27,8 @@ class SearchCtrl {
 		$this->form->nazwa = ParamUtils::getFromRequest('nazwa');
         $this->form->gwiazdki = ParamUtils::getFromRequest('gwiazdki');
         $this->form->amount = ParamUtils::getFromRequest('amount');
+        $this->form->hotname = ParamUtils::getFromRequest('hotname');
+        
 	}
     
     public function action_searchShow() {
@@ -42,13 +46,13 @@ class SearchCtrl {
          
         App::getSmarty()->assign('kraj',$this->recordskraj);
         App::getSmarty()->assign('miasto',$this->recordsmiasto);          
-        App::getSmarty()->display("search.html");
+        App::getSmarty()->display("search.tpl");
         
     }
     public function action_searchResult(){
         $this->getParams();	
         try{
-            $this->aaa = App::getDB()->select("miasto", array("[><]hotel" => array("idmiasto" => "miasto_idmiasto")),
+            $this->isHotel = App::getDB()->select("miasto", array("[><]hotel" => array("idmiasto" => "miasto_idmiasto")),
 			array("hotel.nazwa(hotname)","miasto.nazwa", "hotel.cena_za_noc", "miasto.kraj","hotel.gwiazdki", "hotel.zdjecie"), array("AND" => array("miasto.nazwa" => $this->form->nazwa, "miasto.kraj" => $this->form->kraj, "hotel.gwiazdki" => $this->form->amount)));
             //     if($isCountryCityStars){
                     // $this->aaa = App::getDB()->select("miasto", [
@@ -62,11 +66,12 @@ class SearchCtrl {
                     // ]);
                 
         } catch (\PDOException $e){
-			App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
+			App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
 		}	
-                App::getSmarty()->assign('results',$this->aaa);
-                App::getSmarty()->display("generic.html");	
+                App::getSmarty()->assign('results',$this->isHotel);
+                App::getSmarty()->display("generic.tpl");	
+                
 			// else {
 			// 	$isAccountUser = App::getDB()->has("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")),
 			// array("AND" => array("kontakt.email" => $this->form->login, "users.haslo" => $this->form->pass, "users.czy_admin" => 0)));
@@ -80,4 +85,22 @@ class SearchCtrl {
 			// 		}
 			// }
         }
-    }
+        public function validateShow(){
+            $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wykonanie aplikacji');
+            return !App::getMessages()->isError();
+        }
+        public function action_hotelShow(){
+            if($this->validateShow()){
+			
+                try{
+                    $this->selHotel = App::getDB()->select("miasto", array("[><]hotel" => array("idmiasto" => "miasto_idmiasto")),
+                    array("hotel.id","hotel.nazwa(hotname)","miasto.nazwa", "hotel.cena_za_noc", "miasto.kraj","hotel.gwiazdki", "hotel.zdjecie"), array("hotel.id" => $this->form->id));
+                } catch (\PDOException $e){
+                    App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
+                        if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());
+                }
+                App::getSmarty()->assign('hotel',$this->selHotel);
+                App::getSmarty()->display("hotel.tpl");	
+            }
+        }
+}

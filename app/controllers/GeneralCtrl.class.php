@@ -15,7 +15,8 @@ class GeneralCtrl {
     
     public function action_generalShow() {
 		              
-        App::getSmarty()->display("general.html");
+        
+        App::getSmarty()->display("general.tpl");
         
     }
     

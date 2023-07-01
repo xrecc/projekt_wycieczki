@@ -24,7 +24,7 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="{url action='generalShow'}" class="logo">
             <span class="symbol"
               ><img src="{$conf->app_url}images/logo.svg" alt="" /></span
             ><span class="title">Wakacje z Sebą</span>
@@ -43,15 +43,23 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
-          <li>
-            <a href="{$conf->action_url}resultList"
-              >Dezaktywuj konto (tymczasowo logowanie)</a
-            >
-          </li>
-          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
-        </ul>
+        <li><a href="{url action='generalShow'}">Strona główna</a></li>
+        {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
+        <li><a href="elements.tpl">Elements</a></li>
+        <li>
+          <a href="{url action='resultList'}"
+            >Dezaktywuj konto (tymczasowo lista użytkowników)</a
+          >
+        </li>
+        {if \core\RoleUtils::inRole("admin")}
+        <li><a href="{url action='adminpanelShow'}">Panel Admina</a></li>
+        {/if}
+        <li><a href="{url action='logout'}">Wylogowanie</a></li>
+        {else}
+          <li><a href="{url action='loginShow'}">Logowanie</a></li>
+        <li><a href="{url action='signupShow'}">Rejestracja</a></li>
+      {/if}
+      </ul>
       </nav>
 
       <!-- Main -->
@@ -66,7 +74,7 @@
               <span class="image">
                 <img src="images/pic01.jpg" alt="" />
               </span>
-              <a href="{$conf->action_url}resultList">
+              <a href="{url action='resultList'}">
                 <h2>Zarządzanie użytkownikami</h2>
                 <div class="content">
                   <p>Dodawanie, usuwanie, modyfikowanie użytkowników.</p>
@@ -77,7 +85,7 @@
               <span class="image">
                 <img src="images/pic02.jpg" alt="" />
               </span>
-              <a href="{$conf->action_url}hotelList">
+              <a href="{url action='hotelList'}">
                 <h2>Zarządzanie hotelami</h2>
                 <div class="content">
                   <p>Dodawanie, usuwanie, modyfikowanie hoteli.</p>
@@ -88,7 +96,7 @@
               <span class="image">
                 <img src="images/pic03.jpg" alt="" />
               </span>
-              <a href="{$conf->action_url}reservationList">
+              <a href="{url action='reservationList'}">
                 <h2>Zarządzanie rezerwacjami</h2>
                 <div class="content">
                   <p>Dodawanie, usuwanie, modyfikowanie rezerwacji.</p>

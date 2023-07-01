@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.3.0, created on 2023-07-01 13:47:36
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\login.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.0',
+  'unifunc' => 'content_64a012584c0a29_12779680',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'fee0c075f077267c097bdc9eb41d2c8af8843309' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\login.tpl',
+      1 => 1688212053,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_64a012584c0a29_12779680 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -6,7 +29,7 @@
 -->
 <html>
   <head>
-    <title>Generic - Phantom by HTML5 UP</title>
+    <title>Phantom by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -24,9 +47,10 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Phantom</span>
+            ><span class="title">Wakacje z Sebą</span>
           </a>
 
           <!-- Nav -->
@@ -42,73 +66,52 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
-          <li>
-            <a href="{$conf->action_url}loginShow"
-              >Dezaktywuj konto (tymczasowo logowanie)</a
-            >
-          </li>
-          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+">Strona główna</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'loginShow'),$_smarty_tpl ) );?>
+">Logowanie</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signupShow'),$_smarty_tpl ) );?>
+">Rejestracja</a></li>
         </ul>
       </nav>
 
       <!-- Main -->
-      <section id="contact">
-        <div>
-          <section>
-            <table id="tab_result" class="pure-table pure-table-bordered">
-              <tr>
-                <th>Imie</th>
-                <th>Nazwisko</th>
-                <th>Haslo</th>
-                <th>Czy Admin</th>
-                <th>email</th>
-                <th>numer_telefonu</th>
-              </tr>
-              {foreach $users as $r} {strip}
-              <tr>
-                <td>{$r["imie"]}</td>
-                <td>{$r["nazwisko"]}</td>
-                <td>{$r["haslo"]}</td>
-                <td>{$r["czy_admin"]}</td>
-                <td>{$r["email"]}</td>
-                <td>{$r["numer_telefonu"]}</td>
-              </tr>
-              {/strip} {/foreach}
-            </table>
-          </section>
+      <div id="main">
+        <div class="inner">
+          <header>
+            <h1>Logowanie.</h1>
+            <p>Zaloguj się na istniejące konto.</p>
+          </header>
         </div>
-      </section>
+      </div>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Get in touch</h2>
-            <form method="post" action="#">
+            <h2>Zaloguj się</h2>
+            <form method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'login'),$_smarty_tpl ) );?>
+">
               <div class="fields">
                 <div class="field half">
-                  <input type="text" name="name" id="name" placeholder="Name" />
+                  <input
+                    type="text"
+                    name="login"
+                    id="id_login"
+                    placeholder="login"
+                  />
                 </div>
                 <div class="field half">
                   <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
+                    type="password"
+                    name="pass"
+                    id="id_pass"
+                    placeholder="password"
                   />
-                </div>
-                <div class="field">
-                  <textarea
-                    name="message"
-                    id="message"
-                    placeholder="Message"
-                  ></textarea>
                 </div>
               </div>
               <ul class="actions">
-                <li><input type="submit" value="Send" class="primary" /></li>
+                <li><input type="submit" value="Zaloguj" class="primary" /></li>
               </ul>
             </form>
           </section>
@@ -166,10 +169,22 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <?php echo '<script'; ?>
+ src="assets/js/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/browser.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/util.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/main.js"><?php echo '</script'; ?>
+>
   </body>
 </html>
+<?php }
+}

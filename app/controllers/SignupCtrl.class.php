@@ -7,6 +7,7 @@ use core\Message;
 use core\ParamUtils;
 use app\forms\SignupForm;
 use PDOException;
+use core\Validator;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -52,6 +53,12 @@ class SignupCtrl {
 				App::getMessages()->addMessage(new Message("Nie podano numeru telefonu", Message::ERROR )) ;
 			}
 		}
+		$v = new Validator();
+		$this->form->phonenumber = $v ->validateFromRequest('phonenumber', [
+			'numeric' => true,
+			'validator_message' => 'Możesz podawać tylko liczby'
+		]
+		);
 		
 		return ! App::getMessages()->isError();
 	}
@@ -84,11 +91,11 @@ class SignupCtrl {
 		}		
 	}
     public function generateView(){
-        App::getSmarty()->display('general.html');
+        App::getSmarty()->display('general.tpl');
     }
     public function action_signupShow() {
 		               
-        App::getSmarty()->display("signup.html");
+        App::getSmarty()->display("signup.tpl");
         
     }
     

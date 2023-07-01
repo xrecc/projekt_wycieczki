@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Phantom by HTML5 UP</title>
+    <title>Generic - Phantom by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -24,9 +24,9 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="{url action='generalShow'}" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
+            ><span class="title">Phantom</span>
           </a>
 
           <!-- Nav -->
@@ -41,48 +41,86 @@
       <!-- Menu -->
       <nav id="menu">
         <h2>Menu</h2>
-        <ul>
-          <li><a href="{$conf->action_url}loginShow">Logowanie</a></li>
-          <li><a href="{$conf->action_url}signupShow">Rejestracja</a></li>
+        <ul> 
+          <li><a href="{url action='generalShow'}">Strona główna</a></li>
+          {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
+          <li><a href="elements.tpl">Elements</a></li>
+          <li>
+            <a href="{url action='resultList'}"
+              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
+            >
+          </li>
+          {if \core\RoleUtils::inRole("admin")}
+          <li><a href="{url action='adminpanelShow'}">Panel Admina</a></li>
+          {/if}
+          <li><a href="{url action='logout'}">Wylogowanie</a></li>
+          {else}
+            <li><a href="{url action='loginShow'}">Logowanie</a></li>
+          <li><a href="{url action='signupShow'}">Rejestracja</a></li>
+        {/if}
         </ul>
       </nav>
 
       <!-- Main -->
-      <div id="main">
-        <div class="inner">
-          <header>
-            <h1>Logowanie.</h1>
-            <p>Zaloguj się na istniejące konto.</p>
-          </header>
+      <section id="contact">
+        <div>
+          <section>
+            <table id="tab_result" class="pure-table pure-table-bordered">
+              <tr>
+                <th>Nazwa</th>
+                <th>Ilość gwiazdek</th>
+                <th>Data powstania</th>
+                <th>Cena za noc</th>
+                <th>Basen</th>
+                <th>All_inclusive</th>
+                <th>Email</th>
+                <th>Numer telefonu</th>
+              </tr>
+              {foreach $hotel as $h} {strip}
+              <tr>
+                <td>{$h["nazwa"]}</td>
+                <td>{$h["gwiazdki"]}</td>
+                <td>{$h["data_powstania"]}</td>
+                <td>{$h["cena_za_noc"]}</td>
+                <td>{$h["basen"]}</td>
+                <td>{$h["all_inclusive"]}</td>
+                <td>{$h["email"]}</td>
+                <td>{$h["numer_telefonu"]}</td>
+              </tr>
+              {/strip} {/foreach}
+            </table>
+          </section>
         </div>
-      </div>
+      </section>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Zaloguj się</h2>
-            <form method="post" action="{$conf->action_url}login">
+            <h2>Get in touch</h2>
+            <form method="post" action="#">
               <div class="fields">
                 <div class="field half">
-                  <input
-                    type="text"
-                    name="login"
-                    id="id_login"
-                    placeholder="login"
-                  />
+                  <input type="text" name="name" id="name" placeholder="Name" />
                 </div>
                 <div class="field half">
                   <input
-                    type="password"
-                    name="pass"
-                    id="id_pass"
-                    placeholder="password"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
                   />
+                </div>
+                <div class="field">
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Message"
+                  ></textarea>
                 </div>
               </div>
               <ul class="actions">
-                <li><input type="submit" value="Zaloguj" class="primary" /></li>
+                <li><input type="submit" value="Send" class="primary" /></li>
               </ul>
             </form>
           </section>

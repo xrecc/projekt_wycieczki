@@ -18,17 +18,7 @@ class HotelListCtrl {
 		try{
 			$this->records = App::getDB()->select("kontakt", array("[><]hotel" => array("idkontakt" => "kontakt_idkontakt")),
 			array("hotel.idhotel","hotel.nazwa","hotel.gwiazdki","hotel.data_powstania","hotel.cena_za_noc","hotel.basen","hotel.all_inclusive", "kontakt.email","kontakt.numer_telefonu"));
-			// $this->records = APP::getDB()->select("users", [
-			// 	"[<>]kontakt" =>["kontakt_idkontakt"=>"kontakt_id"]
-			// ],[
-			// 		"users.idusers",
-			// 		"users.imie",
-			// 		"users.nazwisko",
-            //         "users.haslo",
-            //         "users.czy_admin",
-            //         "kontakt.email",
-            //         "kontakt.numer_telefonu"
-			// 	]);
+
 		} catch (PDOException $e){
 			App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
@@ -36,6 +26,6 @@ class HotelListCtrl {
 		 
 		App::getSmarty()->assign('hotel',$this->records);  
 		
-		App::getSmarty()->display('listahoteli.html');
+		App::getSmarty()->display('listahoteli.tpl');
 	}
 }

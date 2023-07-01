@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.3.0, created on 2023-07-01 13:41:25
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\signup.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.0',
+  'unifunc' => 'content_64a010e5320cf4_53628048',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '5c922225799a025f6bf1d2c1c281437163b9a0c6' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\signup.tpl',
+      1 => 1688210104,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_64a010e5320cf4_53628048 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -12,9 +35,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="{$conf->app_url}assets/css/main.css" />
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/css/main.css" />
     <noscript
-      ><link rel="stylesheet" href="{$conf->app_url}assets/css/noscript.css"
+      ><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/css/noscript.css"
     /></noscript>
   </head>
   <body class="is-preload">
@@ -24,9 +49,11 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+" class="logo">
             <span class="symbol"
-              ><img src="{$conf->app_url}images/logo.svg" alt="" /></span
+              ><img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+images/logo.svg" alt="" /></span
             ><span class="title">Wakacje z Sebą</span>
           </a>
 
@@ -43,8 +70,10 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{$conf->action_url}loginShow">Logowanie</a></li>
-          <li><a href="{$conf->action_url}signupShow">Rejestracja</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'loginShow'),$_smarty_tpl ) );?>
+">Logowanie</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signupShow'),$_smarty_tpl ) );?>
+">Rejestracja</a></li>
         </ul>
       </nav>
 
@@ -63,7 +92,8 @@
         <div class="inner">
           <section>
             <h2>Zarejestruj się</h2>
-            <form method="post" action="{$conf->action_url}signup">
+            <form method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signup'),$_smarty_tpl ) );?>
+">
               <div class="fields">
                 <div class="field half">
                   <input
@@ -169,10 +199,27 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{$conf->app_url}assets/js/jquery.min.js"></script>
-    <script src="{$conf->app_url}assets/js/browser.min.js"></script>
-    <script src="{$conf->app_url}assets/js/breakpoints.min.js"></script>
-    <script src="{$conf->app_url}assets/js/util.js"></script>
-    <script src="{$conf->app_url}assets/js/main.js"></script>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/js/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/js/browser.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/js/breakpoints.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/js/util.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+assets/js/main.js"><?php echo '</script'; ?>
+>
   </body>
 </html>
+<?php }
+}

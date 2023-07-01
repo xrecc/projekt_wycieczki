@@ -42,15 +42,23 @@
       <!-- Menu -->
       <nav id="menu">
         <h2>Menu</h2>
-        <ul>
-          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
+        <ul>          
+          <li><a href="{url action='generalShow'}">Strona główna</a></li>
+          {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
+          <li><a href="elements.tpl">Elements</a></li>
           <li>
-            <a href="{$conf->action_url}loginShow"
-              >Dezaktywuj konto (tymczasowo logowanie)</a
+            <a href="{url action='resultList'}"
+              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
             >
           </li>
-          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
+          {if \core\RoleUtils::inRole("admin")}
+          <li><a href="{url action='adminpanelShow'}">Panel Admina</a></li>
+          {/if}
+          <li><a href="{url action='logout'}">Wylogowanie</a></li>
+          {else}
+            <li><a href="{url action='loginShow'}">Logowanie</a></li>
+          <li><a href="{url action='signupShow'}">Rejestracja</a></li>
+        {/if}
         </ul>
       </nav>
 
@@ -69,7 +77,7 @@
         <div class="inner">
           <section>
             <h2>Podaj informacje</h2>
-            <form method="post" action="searchResult">
+            <form method="post" action="{$conf->action_url}searchResult">
               <div class="fields">
                 <div class="field half">
                   <select name="kraj" id="demo-category">

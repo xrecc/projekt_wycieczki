@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 4.3.0, created on 2023-06-27 18:43:10
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\listahoteli.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.0',
+  'unifunc' => 'content_649b119e8000c3_94536286',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '402d940f4c14ffa80e2afbbb42e62c09e211c359' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\listahoteli.tpl',
+      1 => 1687801484,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_649b119e8000c3_94536286 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -24,7 +47,8 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+generalShow" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
             ><span class="title">Phantom</span>
           </a>
@@ -42,48 +66,61 @@
       <nav id="menu">
         <h2>Menu</h2>
         <ul>
-          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
+          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+generalShow">Strona główna</a></li>
+          <li><a href="elements.tpl">Elements</a></li>
           <li>
-            <a href="{$conf->action_url}loginShow"
+            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+loginShow"
               >Dezaktywuj konto (tymczasowo logowanie)</a
             >
           </li>
-          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
+          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+logout">Wylogowanie</a></li>
         </ul>
       </nav>
 
       <!-- Main -->
-      <div id="main">
-        <div class="inner">
-          <h1>Generic Page</h1>
-          <!-- {foreach $hotel as $t} {strip}
-
-          <span class="image main"
-            ><img src="images/hotel{$t["zdjecie"]}.jpg" alt="" /></span
-          >
-          {/strip} {/foreach} -->
-          {foreach $results as $r} {strip}
-          <p>
-          <span class="image left"
-            ><img src="images/hotel{$r["zdjecie"]}.jpg" alt="" /></span
-          >
-          <h3>{$r["hotname"]}</h3>
-          
-            <strong>{$r["hotname"]}</strong> <br>
-            Hotel znajduje się w {$r["nazwa"]}, {$r["kraj"]}.<br />
-            Cena za noc wynosi {$r["cena_za_noc"]} złotych.<br />
-            Może pochwlić się {$r["gwiazdki"]} gwiazdkami.
-          </p>
-          {/strip} {/foreach}
+      <section id="contact">
+        <div>
+          <section>
+            <table id="tab_result" class="pure-table pure-table-bordered">
+              <tr>
+                <th>Nazwa</th>
+                <th>Ilość gwiazdek</th>
+                <th>Data powstania</th>
+                <th>Cena za noc</th>
+                <th>Basen</th>
+                <th>All_inclusive</th>
+                <th>Email</th>
+                <th>Numer telefonu</th>
+              </tr>
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['hotel']->value, 'h');
+$_smarty_tpl->tpl_vars['h']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['h']->value) {
+$_smarty_tpl->tpl_vars['h']->do_else = false;
+?> <tr><td><?php echo $_smarty_tpl->tpl_vars['h']->value["nazwa"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["gwiazdki"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["data_powstania"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["cena_za_noc"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["basen"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["all_inclusive"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["email"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['h']->value["numer_telefonu"];?>
+</td></tr> <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            </table>
+          </section>
         </div>
-      </div>
+      </section>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Zarezerwuj</h2>
+            <h2>Get in touch</h2>
             <form method="post" action="#">
               <div class="fields">
                 <div class="field half">
@@ -164,10 +201,22 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <?php echo '<script'; ?>
+ src="assets/js/jquery.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/browser.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/util.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="assets/js/main.js"><?php echo '</script'; ?>
+>
   </body>
 </html>
+<?php }
+}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-25 22:05:21
-  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\login.html' */
+/* Smarty version 4.3.0, created on 2023-06-27 18:43:24
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\listarezerwacji.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64989e01a26e73_52682211',
+  'unifunc' => 'content_649b11ac201634_04952420',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'cddb7dc6455796d8b6be7c261db4c3dec611259a' => 
+    '1653c8dac9134e1ace39eefe151e92a630793c67' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\login.html',
-      1 => 1687722078,
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\listarezerwacji.tpl',
+      1 => 1687801482,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl) {
+function content_649b11ac201634_04952420 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -29,7 +29,7 @@ function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl)
 -->
 <html>
   <head>
-    <title>Phantom by HTML5 UP</title>
+    <title>Generic - Phantom by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -50,7 +50,7 @@ function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl)
           <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 generalShow" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
+            ><span class="title">Phantom</span>
           </a>
 
           <!-- Nav -->
@@ -67,49 +67,89 @@ generalShow" class="logo">
         <h2>Menu</h2>
         <ul>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-loginShow">Logowanie</a></li>
+generalShow">Strona główna</a></li>
+          <li><a href="elements.tpl">Elements</a></li>
+          <li>
+            <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+loginShow"
+              >Dezaktywuj konto (tymczasowo logowanie)</a
+            >
+          </li>
           <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signupShow">Rejestracja</a></li>
+logout">Wylogowanie</a></li>
         </ul>
       </nav>
 
       <!-- Main -->
-      <div id="main">
-        <div class="inner">
-          <header>
-            <h1>Logowanie.</h1>
-            <p>Zaloguj się na istniejące konto.</p>
-          </header>
+      <section id="contact">
+        <div>
+          <section>
+            <table id="tab_result" class="pure-table pure-table-bordered">
+              <tr>
+                <th>Nazwa</th>
+                <th>Cena za noc</th>
+                <th>All_inclusive</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Email</th>
+                <th>Numer telefonu</th>
+              </tr>
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rezerwacja']->value, 'v');
+$_smarty_tpl->tpl_vars['v']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['v']->value) {
+$_smarty_tpl->tpl_vars['v']->do_else = false;
+?> <tr><td><?php echo $_smarty_tpl->tpl_vars['v']->value["nazwa"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value["cena_za_noc"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value["all_inclusive"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value["imie"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value["nazwisko"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value["email"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['v']->value["numer_telefonu"];?>
+</td><?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['aaa']->value, 'a');
+$_smarty_tpl->tpl_vars['a']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['a']->value) {
+$_smarty_tpl->tpl_vars['a']->do_else = false;
+?><td><?php echo $_smarty_tpl->tpl_vars['a']->value["data_start"];?>
+</td></tr> <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>  <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            </table>
+          </section>
         </div>
-      </div>
+      </section>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
           <section>
-            <h2>Zaloguj się</h2>
-            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-login">
+            <h2>Get in touch</h2>
+            <form method="post" action="#">
               <div class="fields">
                 <div class="field half">
-                  <input
-                    type="text"
-                    name="login"
-                    id="id_login"
-                    placeholder="login"
-                  />
+                  <input type="text" name="name" id="name" placeholder="Name" />
                 </div>
                 <div class="field half">
                   <input
-                    type="password"
-                    name="pass"
-                    id="id_pass"
-                    placeholder="password"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
                   />
+                </div>
+                <div class="field">
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Message"
+                  ></textarea>
                 </div>
               </div>
               <ul class="actions">
-                <li><input type="submit" value="Zaloguj" class="primary" /></li>
+                <li><input type="submit" value="Send" class="primary" /></li>
               </ul>
             </form>
           </section>

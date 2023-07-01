@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-06-25 22:05:21
-  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\login.html' */
+/* Smarty version 4.3.0, created on 2023-07-01 13:54:27
+  from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\generic.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64989e01a26e73_52682211',
+  'unifunc' => 'content_64a013f3460bb1_30467455',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'cddb7dc6455796d8b6be7c261db4c3dec611259a' => 
+    'd78ad285d5af577a7d4846698fc7e4a0d56f3177' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\login.html',
-      1 => 1687722078,
+      0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\generic.tpl',
+      1 => 1688212146,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a013f3460bb1_30467455 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--
 	Phantom by HTML5 UP
@@ -29,7 +29,7 @@ function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl)
 -->
 <html>
   <head>
-    <title>Phantom by HTML5 UP</title>
+    <title>Generic - Phantom by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -47,10 +47,10 @@ function content_64989e01a26e73_52682211 (Smarty_Internal_Template $_smarty_tpl)
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-generalShow" class="logo">
+          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+" class="logo">
             <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
+            ><span class="title">Phantom</span>
           </a>
 
           <!-- Nav -->
@@ -65,54 +65,60 @@ generalShow" class="logo">
       <!-- Menu -->
       <nav id="menu">
         <h2>Menu</h2>
-        <ul>
-          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-loginShow">Logowanie</a></li>
-          <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-signupShow">Rejestracja</a></li>
+        <ul>        
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+">Strona główna</a></li>
+          <?php if (\core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")) {?>
+          <li><a href="elements.tpl">Elements</a></li>
+          <li>
+            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
+"
+              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
+            >
+          </li>
+          <?php if (\core\RoleUtils::inRole("admin")) {?>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'adminpanelShow'),$_smarty_tpl ) );?>
+">Panel Admina</a></li>
+          <?php }?>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'logout'),$_smarty_tpl ) );?>
+">Wylogowanie</a></li>
+          <?php } else { ?>
+            <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'loginShow'),$_smarty_tpl ) );?>
+">Logowanie</a></li>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signupShow'),$_smarty_tpl ) );?>
+">Rejestracja</a></li>
+        <?php }?>
         </ul>
       </nav>
 
       <!-- Main -->
       <div id="main">
         <div class="inner">
-          <header>
-            <h1>Logowanie.</h1>
-            <p>Zaloguj się na istniejące konto.</p>
-          </header>
+          <h1>Wyniki</h1>
+          <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['results']->value, 'r');
+$_smarty_tpl->tpl_vars['r']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['r']->value) {
+$_smarty_tpl->tpl_vars['r']->do_else = false;
+?> <p><span class="image left" ><img src="images/hotel<?php echo $_smarty_tpl->tpl_vars['r']->value['zdjecie'];?>
+.jpg" alt="" /></span><h3><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'hotelShow'),$_smarty_tpl ) );?>
+?id=1"><?php echo $_smarty_tpl->tpl_vars['r']->value["hotname"];?>
+</a></h3><strong><?php echo $_smarty_tpl->tpl_vars['r']->value["hotname"];?>
+</strong> <br>Hotel znajduje się w <?php echo $_smarty_tpl->tpl_vars['r']->value["nazwa"];?>
+, <?php echo $_smarty_tpl->tpl_vars['r']->value["kraj"];?>
+.<br />Cena za noc wynosi <?php echo $_smarty_tpl->tpl_vars['r']->value["cena_za_noc"];?>
+ złotych.<br />Może pochwlić się <?php echo $_smarty_tpl->tpl_vars['r']->value["gwiazdki"];?>
+ gwiazdkami.</p> <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+          
         </div>
       </div>
 
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
-          <section>
-            <h2>Zaloguj się</h2>
-            <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-login">
-              <div class="fields">
-                <div class="field half">
-                  <input
-                    type="text"
-                    name="login"
-                    id="id_login"
-                    placeholder="login"
-                  />
-                </div>
-                <div class="field half">
-                  <input
-                    type="password"
-                    name="pass"
-                    id="id_pass"
-                    placeholder="password"
-                  />
-                </div>
-              </div>
-              <ul class="actions">
-                <li><input type="submit" value="Zaloguj" class="primary" /></li>
-              </ul>
-            </form>
-          </section>
+          
           <section>
             <h2>Follow</h2>
             <ul class="icons">

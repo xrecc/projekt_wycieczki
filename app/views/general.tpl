@@ -24,7 +24,7 @@
       <header id="header">
         <div class="inner">
           <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
+          <a href="{url action='generalShow'}" class="logo">
             <span class="symbol"
               ><img src="{$conf->app_url}images/logo.svg" alt="" /></span
             ><span class="title">Wakacje z Sebą</span>
@@ -42,16 +42,23 @@
       <!-- Menu -->
       <nav id="menu">
         <h2>Menu</h2>
-        <ul>
-          <li><a href="{$conf->action_url}generalShow">Strona główna</a></li>
-          <li><a href="elements.html">Elements</a></li>
+        <ul>      
+          <li><a href="{url action='generalShow'}">Strona główna</a></li>
+          {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
+          <li><a href="elements.tpl">Elements</a></li>
           <li>
-            <a href="{$conf->action_url}resultList"
+            <a href="{url action='resultList'}"
               >Dezaktywuj konto (tymczasowo lista użytkowników)</a
             >
           </li>
-          <li><a href="{$conf->action_url}adminpanelShow">Panel Admina</a></li>
-          <li><a href="{$conf->action_url}logout">Wylogowanie</a></li>
+          {if \core\RoleUtils::inRole("admin")}
+          <li><a href="{url action='adminpanelShow'}">Panel Admina</a></li>
+          {/if}
+          <li><a href="{url action='logout'}">Wylogowanie</a></li>
+          {else}
+            <li><a href="{url action='loginShow'}">Logowanie</a></li>
+          <li><a href="{url action='signupShow'}">Rejestracja</a></li>
+        {/if}
         </ul>
       </nav>
 
@@ -65,7 +72,7 @@
             </h1>
             <p>
               Wybierz którąś z naszych polecanych wycieczek lub skorzystaj z
-              <a href="{$conf->action_url}searchShow"
+              <a href="{url action='searchShow'}"
                 ><strong>wyszukiwarki</strong></a
               >.
             </p>
@@ -75,7 +82,8 @@
               <span class="image">
                 <img src="images/hotelREBU.jpg" alt="Obraz Pexels z Pixabay" />
               </span>
-              <a href="{$conf->action_url}elementsShow">
+
+              <a href="{url action="elementsShow"}">
                 <h2>ReBu Hotel</h2>
                 <div class="content">
                   <p>
@@ -92,7 +100,7 @@
                   alt="Obraz Ingo Jakubke z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Telph</h2>
                 <div class="content">
                   <p>
@@ -109,7 +117,7 @@
                   alt="Obraz Carlos / Saigon - Vietnam z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Zib Hotel</h2>
                 <div class="content">
                   <p>
@@ -126,7 +134,7 @@
                   alt="Obraz werner moser z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Nature</h2>
                 <div class="content">
                   <p>
@@ -143,7 +151,7 @@
                   alt="Obraz wal_172619 z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Glass Palace</h2>
                 <div class="content">
                   <p>
@@ -160,7 +168,7 @@
                   alt="Obraz Steve Buissinne z Pixabay"
                 />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Beyond</h2>
                 <div class="content">
                   <p>
@@ -174,7 +182,7 @@
               <span class="image">
                 <img src="images/pic07.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Ipsum</h2>
                 <div class="content">
                   <p>
@@ -188,7 +196,7 @@
               <span class="image">
                 <img src="images/pic08.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Dolor</h2>
                 <div class="content">
                   <p>
@@ -202,7 +210,7 @@
               <span class="image">
                 <img src="images/pic09.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Nullam</h2>
                 <div class="content">
                   <p>
@@ -216,7 +224,7 @@
               <span class="image">
                 <img src="images/pic10.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Ultricies</h2>
                 <div class="content">
                   <p>
@@ -230,7 +238,7 @@
               <span class="image">
                 <img src="images/pic11.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Dictum</h2>
                 <div class="content">
                   <p>
@@ -244,7 +252,7 @@
               <span class="image">
                 <img src="images/pic12.jpg" alt="" />
               </span>
-              <a href="generic.html">
+              <a href="generic.tpl">
                 <h2>Pretium</h2>
                 <div class="content">
                   <p>
