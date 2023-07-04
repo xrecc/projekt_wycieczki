@@ -3404,3 +3404,10 @@ body.is-menu-visible #menu .close {
     padding: 0 1.25em;
   }
 }
+body {
+  background-image: url("../../images/palemki.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% auto;
+}

@@ -25,23 +25,24 @@ Utils::addRoute('usersList',    'ListCtrl');
 Utils::addRoute('usersListPart','ListCtrl');
 
 Utils::addRoute('reservationSave', 'ReservationCtrl',["user", "admin"]);
-Utils::addRoute('reservationDelete', 'ReservationListCtrl' ,["admin"]);
 Utils::addRoute('reservationNew', 'ReservationCtrl',["user", "admin"]);
 Utils::addRoute('reservationList', 'ReservationListCtrl',["admin"]);
+Utils::addRoute('reservationUser', 'ReservationListCtrl',["user", "admin"]);
+Utils::addRoute('reservationDelete', 'ReservationListCtrl' ,["admin"]);
 
 Utils::addRoute('resultList', 'ListCtrl' ,["admin"]);
 Utils::addRoute('resultEdit', 'ListCtrl' ,["admin"]);
 Utils::addRoute('resultDelete', 'ListCtrl' ,["admin"]);
 Utils::addRoute('resultUpdate', 'ListCtrl' ,["admin"]);
 
+Utils::addRoute('searchHotel',    'SearchCtrl');
+Utils::addRoute('searchHotelPart','SearchCtrl');
 Utils::addRoute('searchResult', 'SearchCtrl');
 Utils::addRoute('searchShow', 'SearchCtrl');
 Utils::addRoute('searchHotelList',    'HotelListCtrl');
 Utils::addRoute('searchHotelListPart','HotelListCtrl');
 Utils::addRoute('searchReservationList',    'ReservationListCtrl');
 Utils::addRoute('searchReservationListPart','ReservationListCtrl');
-Utils::addRoute('searchHotel',    'SearchCtrl');
-Utils::addRoute('searchHotelPart','SearchCtrl');
 
 Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');

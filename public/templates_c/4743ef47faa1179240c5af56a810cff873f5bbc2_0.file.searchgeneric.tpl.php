@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-07-04 00:24:24
+/* Smarty version 4.3.0, created on 2023-07-04 02:43:00
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\searchgeneric.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64a34a98e2e065_01760737',
+  'unifunc' => 'content_64a36b146d57e7_92758145',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4743ef47faa1179240c5af56a810cff873f5bbc2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\searchgeneric.tpl',
-      1 => 1688423062,
+      1 => 1688427713,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a34a98e2e065_01760737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a36b146d57e7_92758145 (Smarty_Internal_Template $_smarty_tpl) {
 ?><section class="tiles">
 <thead>
 </thead>

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use core\SessionUtils;
 use PDOException;
 use core\App;
 use core\Message;
@@ -60,6 +61,20 @@ class ReservationListCtrl {
 			
 		}	
 		App::getRouter()->forwardTo('reservationList');		
+	}
+	public function action_reservationUser(){
+		try{
+			$this->records = App::getDB()->select("rezerwacja", array("[><]hotel" => array("hotel_idhotel" => "idhotel"), "[><]users" => array("users_idusers" => "idusers"), "[><]kontakt" => array("users.kontakt_idkontakt" => "idkontakt")),
+			array("rezerwacja.idrezerwacji","hotel.idhotel","hotel.nazwa", "hotel.cena_za_noc", "hotel.all_inclusive", "users.imie","users.nazwisko", "kontakt.email", "kontakt.numer_telefonu", "rezerwacja.data_start", "rezerwacja.data_end"), array("users.idusers" => SessionUtils::load('id', true)));
+
+
+		} catch (PDOException $e){
+			App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
+				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
+		}	
+		 
+		App::getSmarty()->assign('rezerwacja',$this->records); 
+		App::getSmarty()->display('listarezerwacji.tpl');
 	}
 	public function validateSearch(){
 		$this->form->surname = ParamUtils::getFromRequest('surname');

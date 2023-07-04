@@ -10,9 +10,9 @@
         <ul>      
           <li><a href="{url action='generalShow'}">Strona główna</a></li>
           {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
-          <li>
-            <a href="{url action='resultList'}"
-              >Szybki dostęp do listy użytkowników</a
+            <li>
+            <a href="{url action='reservationUser'}"
+              >Twoje rezerwacje</a
             >
           </li>
           {if \core\RoleUtils::inRole("admin")}
@@ -55,10 +55,7 @@
               <a href="#">
                 <h2>ReBu Hotel</h2>
                 <div class="content">
-                  <p>
-                    Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                    veroeros et feugiat.
-                  </p>
+                  
                 </div>
               </a>
             </article>
@@ -72,10 +69,7 @@
               <a href="#">
                 <h2>Telph</h2>
                 <div class="content">
-                  <p>
-                    Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                    veroeros et feugiat.
-                  </p>
+                  
                 </div>
               </a>
             </article>
@@ -89,10 +83,7 @@
               <a href="#">
                 <h2>Zib Hotel</h2>
                 <div class="content">
-                  <p>
-                    Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                    veroeros et feugiat.
-                  </p>
+                  
                 </div>
               </a>
             </article>
@@ -106,10 +97,7 @@
               <a href="#">
                 <h2>Nature</h2>
                 <div class="content">
-                  <p>
-                    Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                    veroeros et feugiat.
-                  </p>
+                  
                 </div>
               </a>
             </article>
@@ -123,10 +111,7 @@
               <a href="#">
                 <h2>Glass Palace</h2>
                 <div class="content">
-                  <p>
-                    Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                    veroeros et feugiat.
-                  </p>
+                  
                 </div>
               </a>
             </article>
@@ -140,10 +125,7 @@
               <a href="#">
                 <h2>Beyond</h2>
                 <div class="content">
-                  <p>
-                    Sed nisl arcu euismod sit amet nisi lorem etiam dolor
-                    veroeros et feugiat.
-                  </p>
+                  
                 </div>
               </a>
             </article>

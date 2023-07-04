@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-07-04 02:13:08
+/* Smarty version 4.3.0, created on 2023-07-04 02:42:39
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\listahoteli.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64a36414a22865_33689687',
+  'unifunc' => 'content_64a36afff24b59_91889202',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '402d940f4c14ffa80e2afbbb42e62c09e211c359' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\listahoteli.tpl',
-      1 => 1688427710,
+      1 => 1688431348,
       2 => 'file',
     ),
   ),
@@ -21,31 +21,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:searchlistahoteli.tpl' => 1,
   ),
 ),false)) {
-function content_64a36414a22865_33689687 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a36afff24b59_91889202 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_120499551764a36414a13775_97980206', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_126364177664a36afff1a3f8_18902192', 'header');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_50419283264a36414a14085_04245676', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6086749164a36afff1afc8_88496638', 'footer');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_27295283264a36414a144b4_37541176', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12415056864a36afff1b454_95950879', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'header'} */
-class Block_120499551764a36414a13775_97980206 extends Smarty_Internal_Block
+class Block_126364177664a36afff1a3f8_18902192 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_120499551764a36414a13775_97980206',
+    0 => 'Block_126364177664a36afff1a3f8_18902192',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,12 +53,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_50419283264a36414a14085_04245676 extends Smarty_Internal_Block
+class Block_6086749164a36afff1afc8_88496638 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_50419283264a36414a14085_04245676',
+    0 => 'Block_6086749164a36afff1afc8_88496638',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -66,12 +66,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_27295283264a36414a144b4_37541176 extends Smarty_Internal_Block
+class Block_12415056864a36afff1b454_95950879 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_27295283264a36414a144b4_37541176',
+    0 => 'Block_12415056864a36afff1b454_95950879',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -109,10 +109,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
       <!-- Main -->
       <section id="main">
         <div>
-        <div class="bottom-margin">
+        <div class="bottom-margin" style="padding-left: 800px; padding-right:800px">
 <form id="search-form" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('search-form','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 searchHotelListPart','table'); return false;">
-	<legend>Opcje wyszukiwania</legend>
+	<h1>Opcje wyszukiwania</h1>
 	<fieldset>
 		<input type="text" placeholder="nazwa hotelu" name="name" /><br />
 		<button type="submit" class="pure-button pure-button-primary">Filtruj</button>

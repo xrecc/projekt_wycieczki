@@ -10,9 +10,9 @@
         <ul>        
           <li><a href="{url action='generalShow'}">Strona główna</a></li>
           {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
-          <li>
-            <a href="{url action='resultList'}"
-              >Szybki dostęp do listy użytkowników</a
+            <li>
+            <a href="{url action='reservationUser'}"
+              >Twoje rezerwacje</a
             >
           </li>
           {if \core\RoleUtils::inRole("admin")}
@@ -30,8 +30,8 @@
       <section id="main">
         <div>
         <div class="bottom-margin">
-<form style="padding-left: 200px; padding-right:200px;" id="search-form" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('search-form','{$conf->action_root}searchHotelPart','wyniki'); return false;">
-	<legend>Opcje wyszukiwania</legend>
+<form style="padding-left: 800px; padding-right:800px;" id="search-form" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('search-form','{$conf->action_root}searchHotelPart','wyniki'); return false;">
+	<h1>Opcje wyszukiwania</h1>
 	<fieldset>
 		<input type="text" placeholder="Nazwa hotelu" name="hotname" /><br />
 		<button type="submit" class="pure-button pure-button-primary">Filtruj</button>

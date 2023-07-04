@@ -35,7 +35,7 @@ class ElementsCtrl {
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
 		}	
 		 
-		App::getSmarty()->assign('hotel',$this->recordshotel);  
+		App::getSmarty()->assign('hotel',$this->recordshotel); 
 		App::getSmarty()->display('hotel.tpl');
 	}
         

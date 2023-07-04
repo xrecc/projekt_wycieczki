@@ -11,8 +11,8 @@
           <li><a href="{url action='generalShow'}">Strona główna</a></li>
           {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
           <li>
-            <a href="{url action='resultList'}"
-              >Szybki dostęp do listy użytkowników</a
+            <a href="{url action='reservationUser'}"
+              >Twoje rezerwacje</a
             >
           </li>
           {if \core\RoleUtils::inRole("admin")}
