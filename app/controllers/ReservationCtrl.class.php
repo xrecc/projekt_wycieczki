@@ -38,16 +38,16 @@ class ReservationCtrl {
 		$startdate = $v->validateFromPost('startdate', [
             'trim' => true,
             'required' => true,
-            'required_message' => "Wprowadź datę urodzenia",
+            'required_message' => "Wprowadź datę rozpoczęcia wycieczki",
             'date_format' => 'Y-m-d',
-            'validator_message' => "Niepoprawny format daty. Przykład: 2001-04-15"
+            'validator_message' => "Niepoprawny format daty. Przykład: 2023-08-24"
         ]);
 		$enddate = $v->validateFromPost('enddate', [
             'trim' => true,
             'required' => true,
-            'required_message' => "Wprowadź datę urodzenia",
+            'required_message' => "Wprowadź datę zakończenia wycieczki",
             'date_format' => 'Y-m-d',
-            'validator_message' => "Niepoprawny format daty. Przykład: 2001-04-15"
+            'validator_message' => "Niepoprawny format daty. Przykład: 2023-08-24"
         ]);
 		if ($v->isLastOK()) {
             $this->form->startdate = $startdate->format('Y-m-d');
