@@ -24,11 +24,13 @@ class GeneralCtrl {
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
 		}	
 		 
-		App::getSmarty()->assign('username',$this->records); 
-		App::getSmarty()->display("general.tpl");
+		$this->generateView();
 	}            
         
-        
+    public function generateView(){
+		App::getSmarty()->assign('username',$this->records); 
+		App::getSmarty()->display("general.tpl");
+	}    
 }
     
 

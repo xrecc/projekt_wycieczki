@@ -13,8 +13,11 @@ class AdminPanelCtrl {
     
     public function action_adminpanelShow() {
 		             
-        App::getSmarty()->display("adminpanel.tpl");
+        $this->generateView();
         
+    }
+    public function generateView(){
+        App::getSmarty()->display("adminpanel.tpl");
     }
     
 }

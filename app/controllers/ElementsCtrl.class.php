@@ -34,10 +34,12 @@ class ElementsCtrl {
 			App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas wyświetlania hoteli", Message::ERROR )) ;
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
 		}	
-		 
+		 $this->generateView();
+		
+	}
+    public function generateView(){
 		App::getSmarty()->assign('hotel',$this->recordshotel); 
 		App::getSmarty()->display('hotel.tpl');
-	}
-        
+	}    
     
 }

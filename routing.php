@@ -39,10 +39,10 @@ Utils::addRoute('searchHotel',    'SearchCtrl');
 Utils::addRoute('searchHotelPart','SearchCtrl');
 Utils::addRoute('searchResult', 'SearchCtrl');
 Utils::addRoute('searchShow', 'SearchCtrl');
-Utils::addRoute('searchHotelList',    'HotelListCtrl');
-Utils::addRoute('searchHotelListPart','HotelListCtrl');
-Utils::addRoute('searchReservationList',    'ReservationListCtrl');
-Utils::addRoute('searchReservationListPart','ReservationListCtrl');
+Utils::addRoute('searchHotelList',    'HotelListCtrl',["admin"]);
+Utils::addRoute('searchHotelListPart','HotelListCtrl',["admin"]);
+Utils::addRoute('searchReservationList',    'ReservationListCtrl',["admin"]);
+Utils::addRoute('searchReservationListPart','ReservationListCtrl',["admin"]);
 
 Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');

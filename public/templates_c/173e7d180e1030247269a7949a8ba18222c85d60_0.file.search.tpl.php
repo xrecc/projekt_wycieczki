@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-07-04 02:27:02
+/* Smarty version 4.3.0, created on 2023-07-04 08:58:25
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64a367562d8ee1_19138185',
+  'unifunc' => 'content_64a3c311c1ff06_11744027',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '173e7d180e1030247269a7949a8ba18222c85d60' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\search.tpl',
-      1 => 1688427712,
+      1 => 1688433601,
       2 => 'file',
     ),
   ),
@@ -20,33 +20,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a367562d8ee1_19138185 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a3c311c1ff06_11744027 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_211410231164a367562cb9b7_23931390', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_190968406964a3c311c10d84_55737756', 'header');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_50995116364a367562cc180_37058297', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_84260001764a3c311c11535_42840348', 'footer');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_162590365164a367562cc5b1_09611537', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_62976709464a3c311c11951_28111956', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'header'} */
-class Block_211410231164a367562cb9b7_23931390 extends Smarty_Internal_Block
+class Block_190968406964a3c311c10d84_55737756 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_211410231164a367562cb9b7_23931390',
+    0 => 'Block_190968406964a3c311c10d84_55737756',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +54,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_50995116364a367562cc180_37058297 extends Smarty_Internal_Block
+class Block_84260001764a3c311c11535_42840348 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_50995116364a367562cc180_37058297',
+    0 => 'Block_84260001764a3c311c11535_42840348',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_162590365164a367562cc5b1_09611537 extends Smarty_Internal_Block
+class Block_62976709464a3c311c11951_28111956 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_162590365164a367562cc5b1_09611537',
+    0 => 'Block_62976709464a3c311c11951_28111956',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -86,10 +86,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
           <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
 ">Strona główna</a></li>
           <?php if (\core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")) {?>
-          <li>
-            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
+            <li>
+            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'reservationUser'),$_smarty_tpl ) );?>
 "
-              >Szybki dostęp do listy użytkowników</a
+              >Twoje rezerwacje</a
             >
           </li>
           <?php if (\core\RoleUtils::inRole("admin")) {?>

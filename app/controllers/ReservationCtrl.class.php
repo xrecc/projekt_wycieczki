@@ -31,9 +31,20 @@ class ReservationCtrl {
         $this->form->amount = ParamUtils::getFromRequest('amount');
         $this->form->hotname = ParamUtils::getFromRequest('hotname');
 	}
-	
+	public function validate(){
+		$today = date('Y-m-d');
+		if (! App::getMessages()->isError ()) {
+			
+			if ($this->form->startdate < $today) {
+				App::getMessages()->addMessage(new Message("Nie możesz podawać daty z przeszłości", Message::ERROR )) ;
+			}
+			if ($this->form->enddate <= $this->form->startdate) {
+				App::getMessages()->addMessage(new Message("Data zakończenia musi być większa od daty początkowej", Message::ERROR )) ;
+			}
+		}
+		return ! App::getMessages()->isError();
+	}
 	public function validateSave(){		
-
 		$v = new Validator();
 		$startdate = $v->validateFromPost('startdate', [
             'trim' => true,
@@ -58,7 +69,7 @@ class ReservationCtrl {
 	}
 	public function action_reservationSave(){
 		$this->getParams();	
-		if ($this->validateSave()) {
+		if ($this->validateSave() && $this->validate()) {
         try{
 			App::getDB()->insert("rezerwacja", [				
 				"data_start" => $this->form->startdate,
@@ -67,11 +78,14 @@ class ReservationCtrl {
 				"users_idusers" => implode(SessionUtils::load('id', true))
 			]);
 	} catch (PDOException $e){
-		App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
+		App::getMessages()->addMessage(new Message("Błąd podczas rezerwacji", Message::ERROR )) ;
 			if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
 		}	
-		App::getRouter()->forwardTo('generalShow');	
+		$this->generateView();
 	}
 	
 }
+	public function generateView(){
+		App::getRouter()->forwardTo('generalShow');	
+	}
 }

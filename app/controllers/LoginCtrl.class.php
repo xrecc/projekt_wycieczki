@@ -90,8 +90,10 @@ class LoginCtrl {
 	}
     public function action_loginShow() {
 		               
-        App::getSmarty()->display("login.tpl");
+        $this->generateView();
         
     }
-    
+    public function generateView(){
+		App::getSmarty()->display("login.tpl");
+	}
 }
