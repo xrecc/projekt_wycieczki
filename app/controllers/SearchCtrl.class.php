@@ -5,8 +5,7 @@ namespace app\controllers;
 use core\App;
 use core\Message;
 use core\ParamUtils;
-use app\forms\HotelForm;
-use core\Utils;
+use app\forms\Form;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -18,9 +17,10 @@ class SearchCtrl {
     private $recordsmiasto;
     private $isHotel;
     private $selHotel;
+    private $records;
     private $form;
     public function __construct(){
-		$this->form = new HotelForm();
+		$this->form = new Form();
 	}
     public function getParams(){
 		$this->form->kraj = ParamUtils::getFromRequest('kraj');
@@ -40,7 +40,7 @@ class SearchCtrl {
                 "@nazwa"
             ]);
         } catch (\PDOException $e){
-            App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
+            App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas wyświetlania wyników", Message::ERROR )) ;
                 if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
         }	
          
@@ -50,20 +50,11 @@ class SearchCtrl {
         
     }
     public function action_searchResult(){
-        $this->getParams();	
+         $this->getParams();	
         try{
             $this->isHotel = App::getDB()->select("miasto", array("[><]hotel" => array("idmiasto" => "miasto_idmiasto")),
-			array("hotel.nazwa(hotname)","miasto.nazwa", "hotel.cena_za_noc", "miasto.kraj","hotel.gwiazdki", "hotel.zdjecie"), array("AND" => array("miasto.nazwa" => $this->form->nazwa, "miasto.kraj" => $this->form->kraj, "hotel.gwiazdki" => $this->form->amount)));
-            //     if($isCountryCityStars){
-                    // $this->aaa = App::getDB()->select("miasto", [
-                    //     "nazwa",
-                    //     "kraj"     
-                    // ],[    
-                    //     "AND" =>[           
-                    //     "nazwa" => $this->form->nazwa,
-                    //     "kraj" => $this->form->kraj
-                    //     ]
-                    // ]);
+			array("hotel.idhotel","hotel.nazwa(hotname)","miasto.nazwa", "hotel.cena_za_noc", "miasto.kraj","hotel.gwiazdki", "hotel.zdjecie"), array("AND" => array("miasto.nazwa" => $this->form->nazwa, "miasto.kraj" => $this->form->kraj, "hotel.gwiazdki" => $this->form->amount)));
+
                 
         } catch (\PDOException $e){
 			App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
@@ -72,35 +63,54 @@ class SearchCtrl {
                 App::getSmarty()->assign('results',$this->isHotel);
                 App::getSmarty()->display("generic.tpl");	
                 
-			// else {
-			// 	$isAccountUser = App::getDB()->has("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")),
-			// array("AND" => array("kontakt.email" => $this->form->login, "users.haslo" => $this->form->pass, "users.czy_admin" => 0)));
-
-			// 		if($isAccountUser)
-			// 		{
-			// 			RoleUtils::addRole('user');
-			// 		}
-			// 		else{
-			// 			App::getMessages()->addMessage(new Message("Niepoprawny login lub hasło", Message::ERROR ));
-			// 		}
-			// }
         }
-        public function validateShow(){
-            $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wykonanie aplikacji');
+        public function validateSearch(){
+            $this->form->hotname = ParamUtils::getFromRequest('hotname');
             return !App::getMessages()->isError();
         }
-        public function action_hotelShow(){
-            if($this->validateShow()){
-			
-                try{
-                    $this->selHotel = App::getDB()->select("miasto", array("[><]hotel" => array("idmiasto" => "miasto_idmiasto")),
-                    array("hotel.id","hotel.nazwa(hotname)","miasto.nazwa", "hotel.cena_za_noc", "miasto.kraj","hotel.gwiazdki", "hotel.zdjecie"), array("hotel.id" => $this->form->id));
-                } catch (\PDOException $e){
-                    App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
-                        if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());
-                }
-                App::getSmarty()->assign('hotel',$this->selHotel);
-                App::getSmarty()->display("hotel.tpl");	
+        public function load_data() {
+            
+            $this->validateSearch();
+    
+        
+            $search_params = []; 
+            if (isset($this->form->hotname) && strlen($this->form->hotname) > 0) {
+                $search_params['hotel.nazwa[~]'] = $this->form->hotname . '%';
             }
+    
+     
+            $num_params = sizeof($search_params);
+            if ($num_params > 1) {
+                $where = ["AND" => &$search_params];
+            } else {
+                $where = &$search_params;
+            }
+            
+            $where ["ORDER"] = "hotel.nazwa";
+           
+    
+            try {
+                $this->records = App::getDB()->select("miasto", array("[><]hotel" => array("idmiasto" => "miasto_idmiasto")),
+                array("hotel.idhotel","hotel.nazwa(hotname)","miasto.nazwa", "hotel.cena_za_noc", "miasto.kraj","hotel.gwiazdki", "hotel.zdjecie"), $where);
+            } catch (\PDOException $e){
+                App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
+                if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());
+            }
+            App::getSmarty()->assign('results',$this->records);  
+    
         }
-}
+        public function action_searchHotel() {
+            $this->load_data();
+            App::getSmarty()->assign('form', $this->form);
+            App::getSmarty()->assign('hotel', $this->records);  
+            App::getSmarty()->display('generic.tpl');
+        }
+    
+        public function action_searchHotelPart() {
+            $this->load_data();
+            App::getSmarty()->assign('form', $this->form);
+            App::getSmarty()->assign('hotel', $this->records);
+            App::getSmarty()->display('searchgeneric.tpl');
+        }
+    }
+    

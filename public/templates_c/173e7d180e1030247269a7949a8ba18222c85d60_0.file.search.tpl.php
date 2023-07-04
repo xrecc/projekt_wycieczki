@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-07-01 13:48:01
+/* Smarty version 4.3.0, created on 2023-07-04 00:49:45
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\search.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64a012717dccc6_04194971',
+  'unifunc' => 'content_64a35089327447_93525689',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '173e7d180e1030247269a7949a8ba18222c85d60' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\search.tpl',
-      1 => 1688212079,
+      1 => 1688424564,
       2 => 'file',
     ),
   ),
@@ -20,50 +20,64 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a012717dccc6_04194971 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Phantom by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
-          <!-- Logo -->
-          <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-generalShow" class="logo">
-            <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
-          </a>
+function content_64a35089327447_93525689 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
 
-          <!-- Nav -->
-          <nav>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_71158957964a3508931b184_82328159', 'header');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_52374792064a3508931b937_02124470', 'footer');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_160308489064a3508931bd57_86649667', 'content');
+?>
+
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
+}
+/* {block 'header'} */
+class Block_71158957964a3508931b184_82328159 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'header' => 
+  array (
+    0 => 'Block_71158957964a3508931b184_82328159',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'header'} */
+/* {block 'footer'} */
+class Block_52374792064a3508931b937_02124470 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'footer' => 
+  array (
+    0 => 'Block_52374792064a3508931b937_02124470',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'footer'} */
+/* {block 'content'} */
+class Block_160308489064a3508931bd57_86649667 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_160308489064a3508931bd57_86649667',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
 
       <!-- Menu -->
       <nav id="menu">
@@ -72,11 +86,10 @@ generalShow" class="logo">
           <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
 ">Strona główna</a></li>
           <?php if (\core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")) {?>
-          <li><a href="elements.tpl">Elements</a></li>
           <li>
             <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
 "
-              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
+              >Szybki dostęp do listy użytkowników</a
             >
           </li>
           <?php if (\core\RoleUtils::inRole("admin")) {?>
@@ -206,14 +219,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
               </ul>
             </form>
           </section>
-
-          <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
+          
 
     <!-- Scripts -->
     <?php echo '<script'; ?>
@@ -223,27 +229,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       }
     <?php echo '</script'; ?>
 >
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/jquery.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/browser.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/util.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/main.js"><?php echo '</script'; ?>
->
-  </body>
-</html>
-<?php }
+
+<?php
+}
+}
+/* {/block 'content'} */
 }

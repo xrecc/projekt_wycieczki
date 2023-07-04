@@ -1,43 +1,8 @@
-<!DOCTYPE html>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Phantom by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="{$conf->app_url}assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="{$conf->app_url}assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
-          <!-- Logo -->
-          <a href="{$conf->action_url}generalShow" class="logo">
-            <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
-          </a>
+{extends file="main.tpl"}
 
-          <!-- Nav -->
-          <nav>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+{block name = header}{/block}
+{block name = footer}{/block}
+{block name = content}
 
       <!-- Menu -->
       <nav id="menu">
@@ -45,10 +10,9 @@
         <ul>          
           <li><a href="{url action='generalShow'}">Strona główna</a></li>
           {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
-          <li><a href="elements.tpl">Elements</a></li>
           <li>
             <a href="{url action='resultList'}"
-              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
+              >Szybki dostęp do listy użytkowników</a
             >
           </li>
           {if \core\RoleUtils::inRole("admin")}
@@ -161,14 +125,7 @@
               </ul>
             </form>
           </section>
-
-          <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
+          
 
     <!-- Scripts -->
     <script type="text/javascript">
@@ -176,10 +133,5 @@
         document.getElementById("rangeValue").innerHTML = value;
       }
     </script>
-    <script src="{$conf->app_url}assets/js/jquery.min.js"></script>
-    <script src="{$conf->app_url}assets/js/browser.min.js"></script>
-    <script src="{$conf->app_url}assets/js/breakpoints.min.js"></script>
-    <script src="{$conf->app_url}assets/js/util.js"></script>
-    <script src="{$conf->app_url}assets/js/main.js"></script>
-  </body>
-</html>
+
+{/block}

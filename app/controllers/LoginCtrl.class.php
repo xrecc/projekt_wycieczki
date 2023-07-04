@@ -6,7 +6,8 @@ use core\App;
 use core\Message;
 use core\ParamUtils;
 use core\RoleUtils;
-use app\forms\LoginForm;
+use app\forms\Form;
+use core\SessionUtils;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -17,7 +18,7 @@ class LoginCtrl {
     private $form;
 	
 	public function __construct(){
-		$this->form = new LoginForm();
+		$this->form = new Form();
 	}
 	
 	public function getParams(){
@@ -46,6 +47,8 @@ class LoginCtrl {
 
 			if($isAccount){
 				RoleUtils::addRole('admin');
+				 $uzytkownik = App::getDB()->get("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")), array("users.idusers"), array("kontakt.email" => $this->form->login));
+				 SessionUtils::store('id', $uzytkownik);
 			}	
 			else {
 				$isAccountUser = App::getDB()->has("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")),
@@ -54,6 +57,8 @@ class LoginCtrl {
 					if($isAccountUser)
 					{
 						RoleUtils::addRole('user');
+						$uzytkownik = App::getDB()->get("kontakt", array("[><]users" => array("idkontakt" => "kontakt_idkontakt")), array("users.idusers"), array("kontakt.email" => $this->form->login));
+						SessionUtils::store('id', $uzytkownik);
 					}
 					else{
 						App::getMessages()->addMessage(new Message("Niepoprawny login lub hasło", Message::ERROR ));
@@ -70,7 +75,7 @@ class LoginCtrl {
 		$this->getParams();
 		
 		if ($this->validate()){
-			App::getSmarty()->display("general.tpl");
+			App::getRouter()->forwardTo('generalShow');
 		} else {
 			$this->action_loginShow(); 
 		}

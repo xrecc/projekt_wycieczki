@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use core\App;
 use core\Message;
-use core\Utils;
+use core\SessionUtils;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -12,12 +12,23 @@ use core\Utils;
  * @author Przemysław Kudłacik
  */
 class GeneralCtrl {
+    private $records;
     
     public function action_generalShow() {
-		              
+		$usern = SessionUtils::load('id', true);
+		try{
+			$this->records = App::getDB()->select("users", array("imie"), array("idusers" => $usern));
+
+		} catch (\PDOException $e){
+			App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
+				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
+		}	
+		 
+		App::getSmarty()->assign('username',$this->records); 
+		App::getSmarty()->display("general.tpl");
+	}            
         
-        App::getSmarty()->display("general.tpl");
         
-    }
-    
 }
+    
+

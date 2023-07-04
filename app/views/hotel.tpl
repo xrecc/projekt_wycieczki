@@ -1,42 +1,8 @@
-<!DOCTYPE html>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Generic - Phantom by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
-          <!-- Logo -->
-          <a href="{url action='generalShow'}" class="logo">
-            <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Phantom</span>
-          </a>
+{extends file="main.tpl"}
 
-          <!-- Nav -->
-          <nav>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+{block name = header}{/block}
+{block name = footer}{/block}
+{block name = content}
 
       <!-- Menu -->
       <nav id="menu">
@@ -44,10 +10,9 @@
         <ul>   
           <li><a href="{url action='generalShow'}">Strona główna</a></li>
           {if \core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")}
-          <li><a href="elements.tpl">Elements</a></li>
           <li>
             <a href="{url action='resultList'}"
-              >Dezaktywuj konto (tymczasowo lista użytkowników)</a
+              >Szybki dostęp do listy użytkowników</a
             >
           </li>
           {if \core\RoleUtils::inRole("admin")}
@@ -64,89 +29,40 @@
       <!-- Main -->
       <div id="main">
         <div class="inner">
+        {foreach $hotel as $h} {strip}
           <h1>Hotel</h1>
 
           <p>
           <span class="image left"
-            ><img src="images/hotelREBU.jpg" alt="" /></span
+            ><img src="{url action="images/hotel{$h["zdjecie"]}.jpg"}" alt="" /></span
           >
-          <h3>ReBu Hotel</a></h3>
+          <h3>{$h["nazwa"]}</a></h3>
 
-            <strong>ReBu Hotel</strong> <br>
-            Hotel znajduje się w<br />
-            Cena za noc wynosi  złotych.<br />
-            Może pochwlić się  gwiazdkami.
+            <strong>{$h["nazwa"]}</strong> <br>
+            Hotel znajduje się w {$h["nazwamiasta"]}, {$h["kraj"]}<br />
+            Cena za noc wynosi {$h["cena_za_noc"]} złotych.<br />
+            Może pochwlić się {$h["gwiazdki"]} gwiazdkami.
           </p>
-          <form method="post" action="{url action='reservationNew'}">            
+          <form method="post" action="{url action='reservationSave'}">
+          <div class="fields">
+            <div class="field half">
+            <span>Data startowa: </span>
+              <input type="text" name="startdate" min="" />
+            </div>
+            <div class="field half">
+            <span>Data końcowa: </span>
+              <input
+                type="text"
+                name="enddate"    
+              />
+            </div>
+          </div>           
           <ul class="actions">
             <li><input type="submit" value="Zarezerwuj" class="primary" /></li>
           </ul>
         </form>
+      {/strip} {/foreach}
         </div>
       </div>
 
-      <!-- Footer -->
-      <footer id="footer">
-        <div class="inner">
-
-          <section>
-            <h2>Follow</h2>
-            <ul class="icons">
-              <li>
-                <a href="#" class="icon brands style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-dribbble"
-                  ><span class="label">Dribbble</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-github"
-                  ><span class="label">GitHub</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-500px"
-                  ><span class="label">500px</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon solid style2 fa-phone"
-                  ><span class="label">Phone</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon solid style2 fa-envelope"
-                  ><span class="label">Email</span></a
-                >
-              </li>
-            </ul>
-          </section>
-          <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
-</html>
+     {/block}

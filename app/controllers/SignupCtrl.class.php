@@ -5,7 +5,7 @@ namespace app\controllers;
 use core\App;
 use core\Message;
 use core\ParamUtils;
-use app\forms\SignupForm;
+use app\forms\Form;
 use PDOException;
 use core\Validator;
 
@@ -18,7 +18,7 @@ class SignupCtrl {
     private $form;
 	
 	public function __construct(){
-		$this->form = new SignupForm();
+		$this->form = new Form();
 	}
 	
 	public function getParams(){
@@ -36,7 +36,13 @@ class SignupCtrl {
 		}
 			
 		if (! App::getMessages()->isError ()) {
-			
+
+			$exlogin = App::getDB()->get("kontakt", "*", [
+				"email" => $this->form->email
+			]);
+			if($exlogin){
+				App::getMessages()->addMessage(new Message("Istnieje już użytkownik o podanym adresie email", Message::ERROR )) ;
+			}		
 			if ($this->form->pass == "") {
 				App::getMessages()->addMessage(new Message("Nie podano hasła", Message::ERROR )) ;
 			}
@@ -80,7 +86,7 @@ class SignupCtrl {
 				]);
 					
 			} catch (PDOException $e){
-				App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
+				App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas rejestracji", Message::ERROR )) ;
 				if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());			
 			}
 			
@@ -91,7 +97,7 @@ class SignupCtrl {
 		}		
 	}
     public function generateView(){
-        App::getSmarty()->display('general.tpl');
+        App::getRouter()->forwardTo('login');
     }
     public function action_signupShow() {
 		               

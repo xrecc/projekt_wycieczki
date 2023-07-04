@@ -5,10 +5,10 @@ namespace app\controllers;
 use core\App;
 use core\Message;
 use core\ParamUtils;
-use app\forms\SignupForm;
+use core\SessionUtils;
 use PDOException;
 use core\Validator;
-use app\forms\HotelForm;
+use app\forms\Form;
 
 /**
  * HelloWorld built in Amelia - sample controller
@@ -21,7 +21,7 @@ class ReservationCtrl {
 	private $resHotel;
 	
 	public function __construct(){
-		$this->form = new HotelForm();
+		$this->form = new Form();
 	}
 	
 	public function getParams(){
@@ -32,99 +32,46 @@ class ReservationCtrl {
         $this->form->hotname = ParamUtils::getFromRequest('hotname');
 	}
 	
-	// public function validate() {
-	// 	if (! (isset ( $this->form->pass ) && isset ( $this->form->name ) && isset ( $this->form->surname ) && isset ( $this->form->email ) && isset ( $this->form->phonenumber ))) {
-	// 		return false;
-	// 	}
-			
-	// 	if (! App::getMessages()->isError ()) {
-			
-	// 		if ($this->form->pass == "") {
-	// 			App::getMessages()->addMessage(new Message("Nie podano hasła", Message::ERROR )) ;
-	// 		}
-    //         if ($this->form->name == "") {
-	// 			App::getMessages()->addMessage(new Message("Nie podano imienia", Message::ERROR )) ;
-	// 		}
-    //         if ($this->form->surname == "") {
-	// 			App::getMessages()->addMessage(new Message("Nie podano nazwiska", Message::ERROR )) ;
-	// 		}
-    //         if ($this->form->email == "") {
-	// 			App::getMessages()->addMessage(new Message("Nie podano adresu email", Message::ERROR )) ;
-	// 		}
-    //         if ($this->form->phonenumber == "") {
-	// 			App::getMessages()->addMessage(new Message("Nie podano numeru telefonu", Message::ERROR )) ;
-	// 		}
-	// 	}
-	// 	$v = new Validator();
-	// 	$this->form->phonenumber = $v ->validateFromRequest('phonenumber', [
-	// 		'numeric' => true,
-	// 		'validator_message' => 'Możesz podawać tylko liczby'
-	// 	]
-	// 	);
+	public function validateSave(){		
+
+		$v = new Validator();
+		$startdate = $v->validateFromPost('startdate', [
+            'trim' => true,
+            'required' => true,
+            'required_message' => "Wprowadź datę urodzenia",
+            'date_format' => 'Y-m-d',
+            'validator_message' => "Niepoprawny format daty. Przykład: 2001-04-15"
+        ]);
+		$enddate = $v->validateFromPost('enddate', [
+            'trim' => true,
+            'required' => true,
+            'required_message' => "Wprowadź datę urodzenia",
+            'date_format' => 'Y-m-d',
+            'validator_message' => "Niepoprawny format daty. Przykład: 2001-04-15"
+        ]);
+		if ($v->isLastOK()) {
+            $this->form->startdate = $startdate->format('Y-m-d');
+			$this->form->enddate = $enddate->format('Y-m-d');
+        }
 		
-	// 	return ! App::getMessages()->isError();
-	// }
-    // public function action_signup(){
-	// 	$this->getParams();	
-	// 	if ($this->validate()) {
-	// 		try {
-	// 			App::getDB()->insert("kontakt", [
-	// 				"email" => $this->form->email,
-	// 				"numer_telefonu" => $this->form->phonenumber
-	// 			]);
-				
-	// 			App::getDB()->insert("users", [
-	// 				"imie" => $this->form->name,
-	// 				"nazwisko" => $this->form->surname,
-	// 				"haslo" => $this->form->pass,
-    //                 "czy_admin" => $this->form->isAdmin,
-	// 				"kontakt_idkontakt" => App::getDB()->id("kontakt")
-	// 			]);
-					
-	// 		} catch (PDOException $e){
-	// 			App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
-	// 			if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());			
-	// 		}
-			
-	// 		$this->generateView();
-
-	// 	} else {
-	// 		$this->action_signupShow();	
-	// 	}		
-	// }
-    // public function generateView(){
-    //     App::getSmarty()->display('general.tpl');
-    // }
-    // public function action_signupShow() {
-		               
-    //     App::getSmarty()->display("signup.tpl");
-        
-    // }
-    public function action_reservationNew() {
-		              
-        try{
-            $this->records = App::getDB()->select("hotel", [
-                "@nazwa"
-            ]);
-
-        } catch (PDOException $e){
-            App::getMessages()->addMessage(new Message("Wystąpił nieoczekiwany błąd podczas zapisu rekordu", Message::ERROR )) ;
-                if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
-        }	
-         
-        App::getSmarty()->assign('hotel',$this->records);         
-        App::getSmarty()->display("rezerwacja.tpl");
-        
-    }
+		return !App::getMessages()->isError();
+	}
 	public function action_reservationSave(){
 		$this->getParams();	
+		if ($this->validateSave()) {
         try{
-            $this->resHotel = App::getDB()->get("hotel", [], array("idhotel"), array("nazwa" => $this->form->nazwa));
+			App::getDB()->insert("rezerwacja", [				
+				"data_start" => $this->form->startdate,
+				"data_end" => $this->form->enddate,
+				"hotel_idhotel" => SessionUtils::load("hotelID", true),
+				"users_idusers" => implode(SessionUtils::load('id', true))
+			]);
 	} catch (PDOException $e){
 		App::getMessages()->addMessage(new Message("Brak wyników", Message::ERROR )) ;
 			if (App::getConf()->debug) App::getMessages()->addMessage($e->getMessage());				
-	}	
-			App::getSmarty()->assign('rHotel',$this->resHotel);
-			App::getSmarty()->display("generic.tpl");	
+		}	
+		App::getRouter()->forwardTo('generalShow');	
+	}
+	
 }
 }

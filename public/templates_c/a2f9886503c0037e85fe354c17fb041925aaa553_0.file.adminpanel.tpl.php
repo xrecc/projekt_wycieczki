@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-07-01 14:02:56
+/* Smarty version 4.3.0, created on 2023-07-04 01:45:20
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\adminpanel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64a015f08da428_30976234',
+  'unifunc' => 'content_64a35d9072b645_01279649',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2f9886503c0037e85fe354c17fb041925aaa553' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\adminpanel.tpl',
-      1 => 1688212020,
+      1 => 1688427705,
       2 => 'file',
     ),
   ),
@@ -20,79 +20,89 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a015f08da428_30976234 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Phantom by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
-          <!-- Logo -->
-          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
-" class="logo">
-            <span class="symbol"
-              ><img src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
-          </a>
+function content_64a35d9072b645_01279649 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
 
-          <!-- Nav -->
-          <nav>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_38888278464a35d90725287_08815273', 'header');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_113400767664a35d90725b70_98267035', 'footer');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_201864539164a35d90725fe7_46420207', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
+}
+/* {block 'header'} */
+class Block_38888278464a35d90725287_08815273 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'header' => 
+  array (
+    0 => 'Block_38888278464a35d90725287_08815273',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'header'} */
+/* {block 'footer'} */
+class Block_113400767664a35d90725b70_98267035 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'footer' => 
+  array (
+    0 => 'Block_113400767664a35d90725b70_98267035',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'footer'} */
+/* {block 'content'} */
+class Block_201864539164a35d90725fe7_46420207 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_201864539164a35d90725fe7_46420207',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
 
       <!-- Menu -->
       <nav id="menu">
         <h2>Menu</h2>
-        <ul>
-        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
+        <ul>      
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
 ">Strona główna</a></li>
-        <?php if (\core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")) {?>
-        <li><a href="elements.tpl">Elements</a></li>
-        <li>
-          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
+          <?php if (\core\RoleUtils::inRole("admin") || \core\RoleUtils::inRole("user")) {?>
+          <li>
+            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
 "
-            >Dezaktywuj konto (tymczasowo lista użytkowników)</a
-          >
-        </li>
-        <?php if (\core\RoleUtils::inRole("admin")) {?>
-        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'adminpanelShow'),$_smarty_tpl ) );?>
+              >Szybki dostęp do listy użytkowników</a
+            >
+          </li>
+          <?php if (\core\RoleUtils::inRole("admin")) {?>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'adminpanelShow'),$_smarty_tpl ) );?>
 ">Panel Admina</a></li>
-        <?php }?>
-        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'logout'),$_smarty_tpl ) );?>
+          <?php }?>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'logout'),$_smarty_tpl ) );?>
 ">Wylogowanie</a></li>
-        <?php } else { ?>
-          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'loginShow'),$_smarty_tpl ) );?>
+          <?php } else { ?>
+            <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'loginShow'),$_smarty_tpl ) );?>
 ">Logowanie</a></li>
-        <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signupShow'),$_smarty_tpl ) );?>
+          <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'signupShow'),$_smarty_tpl ) );?>
 ">Rejestracja</a></li>
-      <?php }?>
-      </ul>
+        <?php }?>
+        </ul>
       </nav>
 
       <!-- Main -->
@@ -105,7 +115,8 @@ images/logo.svg" alt="" /></span
           <section class="tiles">
             <article class="style1">
               <span class="image">
-                <img src="images/pic01.jpg" alt="" />
+                <img src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"images/pic01.jpg"),$_smarty_tpl ) );?>
+" alt="" />
               </span>
               <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'resultList'),$_smarty_tpl ) );?>
 ">
@@ -117,7 +128,8 @@ images/logo.svg" alt="" /></span
             </article>
             <article class="style2">
               <span class="image">
-                <img src="images/pic02.jpg" alt="" />
+                <img src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"images/pic02.jpg"),$_smarty_tpl ) );?>
+" alt="" />
               </span>
               <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'hotelList'),$_smarty_tpl ) );?>
 ">
@@ -129,7 +141,8 @@ images/logo.svg" alt="" /></span
             </article>
             <article class="style3">
               <span class="image">
-                <img src="images/pic03.jpg" alt="" />
+                <img src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"images/pic03.jpg"),$_smarty_tpl ) );?>
+" alt="" />
               </span>
               <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'reservationList'),$_smarty_tpl ) );?>
 ">
@@ -143,84 +156,8 @@ images/logo.svg" alt="" /></span
         </div>
       </div>
 
-      <!-- Footer -->
-      <footer id="footer">
-        <div class="inner">
-          <section>
-            <h2>Follow</h2>
-            <ul class="icons">
-              <li>
-                <a href="#" class="icon brands style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-dribbble"
-                  ><span class="label">Dribbble</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-github"
-                  ><span class="label">GitHub</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-500px"
-                  ><span class="label">500px</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon solid style2 fa-phone"
-                  ><span class="label">Phone</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon solid style2 fa-envelope"
-                  ><span class="label">Email</span></a
-                >
-              </li>
-            </ul>
-          </section>
-          <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Scripts -->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/jquery.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/browser.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/util.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-assets/js/main.js"><?php echo '</script'; ?>
->
-  </body>
-</html>
-<?php }
+    <?php
+}
+}
+/* {/block 'content'} */
 }

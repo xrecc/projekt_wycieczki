@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-07-01 13:47:36
+/* Smarty version 4.3.0, created on 2023-07-04 02:11:46
   from 'C:\xampp\htdocs\projekt\projekt_wycieczki\app\views\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64a012584c0a29_12779680',
+  'unifunc' => 'content_64a363c2a17112_00400853',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fee0c075f077267c097bdc9eb41d2c8af8843309' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\projekt_wycieczki\\app\\views\\login.tpl',
-      1 => 1688212053,
+      1 => 1688427712,
       2 => 'file',
     ),
   ),
@@ -20,47 +20,62 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a012584c0a29_12779680 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    <title>Phantom by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
-          <!-- Logo -->
-          <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'generalShow'),$_smarty_tpl ) );?>
-" class="logo">
-            <span class="symbol"><img src="images/logo.svg" alt="" /></span
-            ><span class="title">Wakacje z Sebą</span>
-          </a>
+function content_64a363c2a17112_00400853 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
 
-          <!-- Nav -->
-          <nav>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_186674435064a363c2a09e60_90100919', 'header');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_44130703864a363c2a0a6e2_65501636', 'footer');
+?>
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_88597578564a363c2a0ab00_54915615', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
+}
+/* {block 'header'} */
+class Block_186674435064a363c2a09e60_90100919 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'header' => 
+  array (
+    0 => 'Block_186674435064a363c2a09e60_90100919',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'header'} */
+/* {block 'footer'} */
+class Block_44130703864a363c2a0a6e2_65501636 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'footer' => 
+  array (
+    0 => 'Block_44130703864a363c2a0a6e2_65501636',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'footer'} */
+/* {block 'content'} */
+class Block_88597578564a363c2a0ab00_54915615 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_88597578564a363c2a0ab00_54915615',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
 
       <!-- Menu -->
       <nav id="menu">
@@ -114,77 +129,24 @@ function content_64a012584c0a29_12779680 (Smarty_Internal_Template $_smarty_tpl)
                 <li><input type="submit" value="Zaloguj" class="primary" /></li>
               </ul>
             </form>
-          </section>
-          <section>
-            <h2>Follow</h2>
-            <ul class="icons">
-              <li>
-                <a href="#" class="icon brands style2 fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-dribbble"
-                  ><span class="label">Dribbble</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-github"
-                  ><span class="label">GitHub</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands style2 fa-500px"
-                  ><span class="label">500px</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon solid style2 fa-phone"
-                  ><span class="label">Phone</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon solid style2 fa-envelope"
-                  ><span class="label">Email</span></a
-                >
-              </li>
-            </ul>
-          </section>
-          <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </footer>
-    </div>
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
+$_smarty_tpl->tpl_vars['msg']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
+$_smarty_tpl->tpl_vars['msg']->do_else = false;
+?>
+            <div class="alert <?php if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>alert-success<?php }?>
+                              <?php if ($_smarty_tpl->tpl_vars['msg']->value->isWarning()) {?>alert-warning<?php }?>
+                              <?php if ($_smarty_tpl->tpl_vars['msg']->value->isError()) {?>alert-danger<?php }?>" role="alert">
+               <?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
 
-    <!-- Scripts -->
-    <?php echo '<script'; ?>
- src="assets/js/jquery.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/browser.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/util.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="assets/js/main.js"><?php echo '</script'; ?>
->
-  </body>
-</html>
-<?php }
+            </div>
+           <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+          </section>
+<?php
+}
+}
+/* {/block 'content'} */
 }
